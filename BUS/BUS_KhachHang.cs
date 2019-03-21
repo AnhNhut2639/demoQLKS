@@ -13,7 +13,7 @@ namespace BUS
         public static List<KhachHang_DTO> TakeAllCustomers()
         {
             return KhachHang_DAO.takeCustomers();
-            
+            //test Git
         }
         public static List<KhachHang_DTO> takeCustomerAllID(string ID)
         {
