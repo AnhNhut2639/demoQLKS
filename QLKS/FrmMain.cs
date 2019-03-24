@@ -198,5 +198,38 @@ namespace QLKS
         {
 
         }
+
+        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNhanVien f = new FrmNhanVien();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void themeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmKhachHang f = new FrmKhachHang();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void quảnLýPhòngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPhong f = new FrmPhong();
+            this.Hide();
+            f.ShowDialog();
+            f.Show();
+
+        }
+
+        private void trảPhòngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTraPhong f = new FrmTraPhong();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
     }
 }
