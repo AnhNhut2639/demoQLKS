@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbbTimKiemTheoTen = new System.Windows.Forms.ComboBox();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDichVuKH = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -39,9 +39,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtGiaDVKH = new System.Windows.Forms.TextBox();
             this.txtSoLuongDV = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTenDVKH = new System.Windows.Forms.TextBox();
             this.txtMaDV = new System.Windows.Forms.TextBox();
             this.txtGiaDV = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDichVuKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +74,7 @@
             // 
             this.panel1.Controls.Add(this.cbbTimKiemTheoTen);
             this.panel1.Controls.Add(this.btnThoat);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvDichVuKH);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.dgvKhachHang);
             this.panel1.Controls.Add(this.groupBox1);
@@ -102,13 +102,15 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // dataGridView1
+            // dgvDichVuKH
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(638, 380);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(635, 192);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvDichVuKH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDichVuKH.Location = new System.Drawing.Point(638, 380);
+            this.dgvDichVuKH.Name = "dgvDichVuKH";
+            this.dgvDichVuKH.Size = new System.Drawing.Size(635, 192);
+            this.dgvDichVuKH.TabIndex = 3;
+            this.dgvDichVuKH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDichVuKH_CellContentClick);
+            this.dgvDichVuKH.Click += new System.EventHandler(this.dgvDichVuKH_Click);
             // 
             // label8
             // 
@@ -137,9 +139,9 @@
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtGiaDVKH);
             this.groupBox1.Controls.Add(this.txtSoLuongDV);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtTenDVKH);
             this.groupBox1.Controls.Add(this.txtMaDV);
             this.groupBox1.Controls.Add(this.txtGiaDV);
             this.groupBox1.Controls.Add(this.label14);
@@ -203,12 +205,12 @@
             this.button1.Text = "Thêm DV";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // txtGiaDVKH
             // 
-            this.textBox4.Location = new System.Drawing.Point(343, 208);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(147, 20);
-            this.textBox4.TabIndex = 24;
+            this.txtGiaDVKH.Location = new System.Drawing.Point(343, 208);
+            this.txtGiaDVKH.Name = "txtGiaDVKH";
+            this.txtGiaDVKH.Size = new System.Drawing.Size(147, 20);
+            this.txtGiaDVKH.TabIndex = 24;
             // 
             // txtSoLuongDV
             // 
@@ -217,12 +219,12 @@
             this.txtSoLuongDV.Size = new System.Drawing.Size(147, 20);
             this.txtSoLuongDV.TabIndex = 23;
             // 
-            // textBox2
+            // txtTenDVKH
             // 
-            this.textBox2.Location = new System.Drawing.Point(343, 102);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(147, 20);
-            this.textBox2.TabIndex = 22;
+            this.txtTenDVKH.Location = new System.Drawing.Point(343, 102);
+            this.txtTenDVKH.Name = "txtTenDVKH";
+            this.txtTenDVKH.Size = new System.Drawing.Size(147, 20);
+            this.txtTenDVKH.TabIndex = 22;
             // 
             // txtMaDV
             // 
@@ -430,7 +432,7 @@
             this.Load += new System.EventHandler(this.FrmKhachHang_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDichVuKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -454,7 +456,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvKhachHang;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDichVuKH;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton radNu;
         private System.Windows.Forms.RadioButton radNam;
@@ -466,9 +468,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label txtTenDV;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtGiaDVKH;
         private System.Windows.Forms.TextBox txtSoLuongDV;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTenDVKH;
         private System.Windows.Forms.TextBox txtMaDV;
         private System.Windows.Forms.Label txtGiaDV;
         private System.Windows.Forms.Button button2;

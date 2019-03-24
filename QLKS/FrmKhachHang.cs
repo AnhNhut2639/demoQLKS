@@ -42,6 +42,11 @@ namespace QLKS
             cbbChonPhong.DisplayMember = "TenPhong";
             cbbChonPhong.ValueMember = "MaPhong";
         }
+        void showService(string ID)
+        {
+            dgvDichVuKH.DataSource = BUS_DichVu.TakeAllService(ID);
+            dgvDichVuKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
 
         private void dgvKhachHang_Click(object sender, EventArgs e)
         {
@@ -57,7 +62,26 @@ namespace QLKS
             txtTuoi.Text = dr.Cells["Tuoi"].Value.ToString();
             txtLienLac.Text = dr.Cells["SDT"].Value.ToString();
             cbbTimKiemTheoTen.Text = dr.Cells["TenKH"].Value.ToString();
+            string makh = dr.Cells["MaKH"].Value.ToString();
+            //MessageBox.Show(" " +makh,"Thông báo");
+            //hiển thị lên dgvDichVuKH theo ID của Khách hàng khi click
+            showService(makh);
 
+        }
+
+        private void dgvDichVuKH_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDichVuKH_Click(object sender, EventArgs e)
+        {
+            int current = dgvDichVuKH.CurrentCell.RowIndex;
+            DataGridViewRow dr = dgvDichVuKH.Rows[current];
+            txtMaDV.Text = dr.Cells["MaDV"].Value.ToString();
+            txtTenDVKH.Text = dr.Cells["TenDV"].Value.ToString();
+            txtSoLuongDV.Text = dr.Cells["SoLuong"].Value.ToString();
+            txtGiaDVKH.Text = dr.Cells["GiaDV"].Value.ToString();
         }
     }
 }

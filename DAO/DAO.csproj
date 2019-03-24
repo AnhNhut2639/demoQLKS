@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Account_DAO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="DichVu_DAO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
