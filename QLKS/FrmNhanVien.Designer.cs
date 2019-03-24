@@ -213,6 +213,7 @@
             this.dgvNhanVien.Name = "dgvNhanVien";
             this.dgvNhanVien.Size = new System.Drawing.Size(1141, 277);
             this.dgvNhanVien.TabIndex = 0;
+            this.dgvNhanVien.Click += new System.EventHandler(this.dgvNhanVien_Click);
             // 
             // btnThoatNhanVien
             // 

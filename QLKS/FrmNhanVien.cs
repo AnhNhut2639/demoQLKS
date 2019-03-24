@@ -31,5 +31,20 @@ namespace QLKS
            // bindingNavigator1.BindingSource = dgvNhanVien;
 
         }
+
+        private void dgvNhanVien_Click(object sender, EventArgs e)
+        {
+            int current = dgvNhanVien.CurrentCell.RowIndex;
+            DataGridViewRow dr = dgvNhanVien.Rows[current];
+            txtMaNV.Text = dr.Cells["MaNV"].Value.ToString();
+            txtTenNV.Text = dr.Cells["TenNV"].Value.ToString();
+            dtpNamSinhNV.Text = dr.Cells["NamSinh"].Value.ToString();
+            cbbChucVu.Text = dr.Cells["ChucVu"].Value.ToString();
+            if (dr.Cells["GioiTinh"].Value.ToString() == "Nam")
+                radNamNV.Checked = true;
+            else
+                radNuNV.Checked = true;
+           
+        }
     }
 }
