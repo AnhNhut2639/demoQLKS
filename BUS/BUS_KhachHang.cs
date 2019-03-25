@@ -19,5 +19,10 @@ namespace BUS
         {
             return KhachHang_DAO.takeCustomersFID(ID);
         }
+
+        public static List<KhachHang_DTO> takeAllCustomerFiDPhong(string id)
+        {
+            return KhachHang_DAO.takeCustomerFIdPhong(id);
+        }
     }
 }

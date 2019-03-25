@@ -77,6 +77,12 @@
             this.cbbLoaiPhong.Name = "cbbLoaiPhong";
             this.cbbLoaiPhong.Size = new System.Drawing.Size(150, 21);
             this.cbbLoaiPhong.TabIndex = 6;
+            this.cbbLoaiPhong.SelectedIndexChanged += new System.EventHandler(this.cbbLoaiPhong_SelectedIndexChanged);
+            this.cbbLoaiPhong.SelectionChangeCommitted += new System.EventHandler(this.cbbLoaiPhong_SelectionChangeCommitted);
+            this.cbbLoaiPhong.ValueMemberChanged += new System.EventHandler(this.cbbLoaiPhong_ValueMemberChanged);
+            this.cbbLoaiPhong.SelectedValueChanged += new System.EventHandler(this.cbbLoaiPhong_SelectedValueChanged);
+            this.cbbLoaiPhong.Click += new System.EventHandler(this.cbbLoaiPhong_Click);
+            this.cbbLoaiPhong.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbbLoaiPhong_MouseClick);
             // 
             // txtTenPhong
             // 

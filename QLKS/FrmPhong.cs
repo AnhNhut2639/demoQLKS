@@ -29,11 +29,13 @@ namespace QLKS
             dgvLoadPhong.DataSource = BUS_Phong.TakeAllRooms();
             dgvLoadPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             cbbLoaiPhong.DataSource = BUS_Phong.TakeAllRooms();
-            cbbLoaiPhong.DisplayMember = "LoaiPhong";
+            cbbLoaiPhong.DisplayMember = "LoaiPhong"; 
             cbbLoaiPhong.ValueMember = "MaPhong";
             //
             cbbTinhTrang.DataSource = BUS_Phong.TakeAllRooms();
             cbbTinhTrang.DisplayMember = "TinhTrang";
+
+           
 
         }
 
@@ -45,11 +47,48 @@ namespace QLKS
             txtTenPhong.Text = dr.Cells["TenPhong"].Value.ToString();
             cbbLoaiPhong.Text = dr.Cells["LoaiPhong"].Value.ToString();
             cbbTinhTrang.Text = dr.Cells["TinhTrang"].Value.ToString();
+            // string tmp = dr.Cells["MaPhong"].Value.ToString();
+            //  MessageBox.Show(" " + tmp, "Thông báo");
+            
+
         }
 
         private void dgvLoadPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cbbLoaiPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbbLoaiPhong_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbbLoaiPhong_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+          //  string tmp = cbbLoaiPhong.Text;
+           // MessageBox.Show(" " + tmp, "Thông báo");
+
+        }
+
+        private void cbbLoaiPhong_ValueMemberChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbbLoaiPhong_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void cbbLoaiPhong_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            
         }
     }
 }

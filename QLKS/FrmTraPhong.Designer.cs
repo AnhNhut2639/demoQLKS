@@ -90,6 +90,13 @@
             this.cbbKhachTP.Name = "cbbKhachTP";
             this.cbbKhachTP.Size = new System.Drawing.Size(185, 21);
             this.cbbKhachTP.TabIndex = 2;
+            this.cbbKhachTP.SelectedIndexChanged += new System.EventHandler(this.cbbKhachTP_SelectedIndexChanged);
+            this.cbbKhachTP.SelectionChangeCommitted += new System.EventHandler(this.cbbKhachTP_SelectionChangeCommitted);
+            this.cbbKhachTP.DisplayMemberChanged += new System.EventHandler(this.cbbKhachTP_DisplayMemberChanged);
+            this.cbbKhachTP.ValueMemberChanged += new System.EventHandler(this.cbbKhachTP_ValueMemberChanged);
+            this.cbbKhachTP.SelectedValueChanged += new System.EventHandler(this.cbbKhachTP_SelectedValueChanged);
+            this.cbbKhachTP.TextChanged += new System.EventHandler(this.cbbKhachTP_TextChanged);
+            this.cbbKhachTP.Click += new System.EventHandler(this.cbbKhachTP_Click);
             // 
             // groupBox2
             // 
