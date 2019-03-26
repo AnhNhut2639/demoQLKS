@@ -73,7 +73,7 @@ namespace QLKS
             if(BUS_DangNhap.TakeAllAccounts(A,B)) // xác nhận tài khoản như formMain nếu đúng tiến hành nhân dạng
             {
                 MessageBox.Show("Bạn đã đăng nhập với quyền " +BUS_DangNhap.getAllChucVu(A, B) , "Thông Báo");
-                lb2.Text ="Welcome " + BUS_DangNhap.getAllName(A, B); // nhận dạng người dùng thông qua tài khoản mà họ đăng nhập trước đó
+                lb2.Text = BUS_DangNhap.getAllName(A, B); // nhận dạng người dùng thông qua tài khoản mà họ đăng nhập trước đó
                 lb1.Text = "Phân quyền " + BUS_DangNhap.getPer(A, B); // lấy ID khi để phân quyền 
                 lb4.Text = "Chức Vụ " + BUS_DangNhap.getAllChucVu(A, B);
             }
@@ -135,17 +135,16 @@ namespace QLKS
 
         private void linkTraPhong_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ////string Account = txtTaiKhoan.Text;
-            ////string Pass = txtMatKhau.Text;
-            //if (BUS_DangNhap.TakeAllAccounts(Account, Pass))
-            //{
-            //    // MessageBox.Show("Bạn đã đăng nhập thành công !!!", "Thông báo");
-                FrmTraPhong tra = new FrmTraPhong();
-            //    tra.A = Account; // truyền tài khoản và mật khẩu nhập ở Textbox sang cho form main để nhận dạng người dùng 
-            //    tra.B = Pass;
-                this.Hide();
-                tra.ShowDialog();
-                this.Show();
+            string id = lb2.Text;
+            FrmTraPhong tra = new FrmTraPhong();
+            tra.Ten = id;
+            this.Hide();
+            tra.ShowDialog();
+            this.Show();
+
+            
+           // MessageBox.Show(id);
+
             //}
            
         }
@@ -226,7 +225,9 @@ namespace QLKS
 
         private void trảPhòngToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string id = lb2.Text;
             FrmTraPhong f = new FrmTraPhong();
+            f.Ten = id;
             this.Hide();
             f.ShowDialog();
             this.Show();

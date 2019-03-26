@@ -46,6 +46,7 @@
             this.flpRoom = new System.Windows.Forms.FlowLayoutPanel();
             this.dgvKHDaDat = new System.Windows.Forms.DataGridView();
             this.dgvDichVuDaDat = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKHDaDat)).BeginInit();
@@ -57,7 +58,7 @@
             this.lb2.AutoSize = true;
             this.lb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb2.ForeColor = System.Drawing.Color.Red;
-            this.lb2.Location = new System.Drawing.Point(660, 55);
+            this.lb2.Location = new System.Drawing.Point(916, 59);
             this.lb2.Name = "lb2";
             this.lb2.Size = new System.Drawing.Size(42, 20);
             this.lb2.TabIndex = 7;
@@ -66,7 +67,7 @@
             // lb1
             // 
             this.lb1.AutoSize = true;
-            this.lb1.Location = new System.Drawing.Point(813, 60);
+            this.lb1.Location = new System.Drawing.Point(1161, 55);
             this.lb1.Name = "lb1";
             this.lb1.Size = new System.Drawing.Size(35, 13);
             this.lb1.TabIndex = 0;
@@ -75,7 +76,7 @@
             // lb4
             // 
             this.lb4.AutoSize = true;
-            this.lb4.Location = new System.Drawing.Point(969, 60);
+            this.lb4.Location = new System.Drawing.Point(1245, 55);
             this.lb4.Name = "lb4";
             this.lb4.Size = new System.Drawing.Size(35, 13);
             this.lb4.TabIndex = 1;
@@ -224,11 +225,23 @@
             this.dgvDichVuDaDat.Size = new System.Drawing.Size(690, 111);
             this.dgvDichVuDaDat.TabIndex = 12;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(809, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 24);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Welcome";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1439, 809);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDichVuDaDat);
             this.Controls.Add(this.dgvKHDaDat);
             this.Controls.Add(this.flpRoom);
@@ -272,5 +285,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpRoom;
         private System.Windows.Forms.DataGridView dgvKHDaDat;
         private System.Windows.Forms.DataGridView dgvDichVuDaDat;
+        private System.Windows.Forms.Label label1;
     }
 }

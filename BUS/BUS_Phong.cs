@@ -23,5 +23,9 @@ namespace BUS
         {
             return Phong_DAO.takeRooms();
         }
+        public static List<Phong_DTO> takeALLRoomsFId(string id)
+        {
+            return Phong_DAO.takeRoomsFId(id);
+        }
     }
 }

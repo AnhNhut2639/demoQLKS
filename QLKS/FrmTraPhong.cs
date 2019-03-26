@@ -30,22 +30,18 @@ namespace QLKS
         {
             cbbKhachTP.DataSource = BUS_Phong.TakeAllRooms();
             cbbKhachTP.DisplayMember = "MaPhong";
+            txtNVTT.Text = Ten;
+            txtNVTT.Enabled = false;
         }
 
         private void cbbKhachTP_SelectedValueChanged(object sender, EventArgs e)
         {
-            
-          //  string id = cbbKhachTP.Text;
-         //   ShowInTXT(id);
-            
+          
         }
 
         void ShowInTXT(string ID)
         {
            List<KhachHang_DTO> K = BUS_KhachHang.takeAllCustomerFiDPhong(ID);
-            //List<KhachHang_DTO> K = new List<KhachHang_DTO>();
-            // K = BUS_KhachHang.takeAllCustomerFiDPhong(ID);
-           
                 foreach (KhachHang_DTO item in K)
                 {
                     txtTenKHTraPhong.Text = item.TenKH.ToString();
@@ -58,9 +54,25 @@ namespace QLKS
                     txtTuoiTraPhong.Text = item.Tuoi.ToString();
                     txtLienLacTraPhong.Text = item.Sdt.ToString();
 
-                }
-            
+                }  
+                
+        }
 
+        void showTTThanhToan(string Id)
+        {
+            List<Phong_DTO> P = BUS_Phong.takeALLRoomsFId(Id);
+            foreach (Phong_DTO item in P)
+            {
+                txtTenPTT.Text = item.TenPhong.ToString();
+                txtLoaiPTT.Text = item.LoaiPhong.ToString();
+                txtGiaPhong.Text = item.GiaPhong.ToString();
+            }
+        }
+
+        void showService(string ID)
+        {
+            dgvDVuThanhToan.DataSource = BUS_DichVu.takeAllServiceFId(ID);
+            dgvDVuThanhToan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void cbbKhachTP_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,8 +108,9 @@ namespace QLKS
         private void btnXacNhanTT_Click(object sender, EventArgs e)
         {
             string id = cbbKhachTP.Text;
-           // MessageBox.Show(" " + id, "Thông báo");
             ShowInTXT(id);
+            showTTThanhToan(id);
+            showService(id);
         }
     }
 }

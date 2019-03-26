@@ -36,7 +36,6 @@
             this.txtNgayNhanPhong = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.cbbNVThanhToan = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnHoaDon = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -69,6 +68,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnXacNhanTT = new System.Windows.Forms.Button();
+            this.txtNVTT = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVuThanhToan)).BeginInit();
@@ -101,11 +101,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtNVTT);
             this.groupBox2.Controls.Add(this.dtpNgayTraPhong);
             this.groupBox2.Controls.Add(this.txtNgayNhanPhong);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.cbbNVThanhToan);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.btnHoaDon);
             this.groupBox2.Controls.Add(this.pictureBox1);
@@ -159,14 +159,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(205, 20);
             this.dateTimePicker1.TabIndex = 32;
-            // 
-            // cbbNVThanhToan
-            // 
-            this.cbbNVThanhToan.FormattingEnabled = true;
-            this.cbbNVThanhToan.Location = new System.Drawing.Point(441, 333);
-            this.cbbNVThanhToan.Name = "cbbNVThanhToan";
-            this.cbbNVThanhToan.Size = new System.Drawing.Size(154, 21);
-            this.cbbNVThanhToan.TabIndex = 31;
             // 
             // label6
             // 
@@ -454,6 +446,13 @@
             this.btnXacNhanTT.UseVisualStyleBackColor = true;
             this.btnXacNhanTT.Click += new System.EventHandler(this.btnXacNhanTT_Click);
             // 
+            // txtNVTT
+            // 
+            this.txtNVTT.Location = new System.Drawing.Point(455, 330);
+            this.txtNVTT.Name = "txtNVTT";
+            this.txtNVTT.Size = new System.Drawing.Size(138, 20);
+            this.txtNVTT.TabIndex = 36;
+            // 
             // FrmTraPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -512,12 +511,12 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnHoaDon;
-        private System.Windows.Forms.ComboBox cbbNVThanhToan;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNgayNhanPhong;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dtpNgayTraPhong;
         private System.Windows.Forms.Button btnXacNhanTT;
+        private System.Windows.Forms.TextBox txtNVTT;
     }
 }

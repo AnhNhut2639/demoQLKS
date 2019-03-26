@@ -98,10 +98,37 @@ namespace DAO
             return lst;
 
         }
-        //Take GitHub
+        public static List<Phong_DTO> takeRoomsFId(string id)
+        {
+            string sQuery = @"select * from Phong P where P.TinhTrang like N'%đ%' AND P.MaPhong= '"+id+"' ";
+            conn = DataProvider.Connect();
+            DataTable dt = DataProvider.dataSQuery(sQuery, conn);
+            if (dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            List<Phong_DTO> lst = new List<Phong_DTO>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Phong_DTO P = new Phong_DTO();
+                P.MaPhong = dt.Rows[i]["MaPhong"].ToString();
+                P.TenPhong = dt.Rows[i]["TenPhong"].ToString();
+                P.LoaiPhong = dt.Rows[i]["LoaiPhong"].ToString();
+                P.GiaPhong = int.Parse(dt.Rows[i]["GiaPhong"].ToString());
+                P.TinhTrang = dt.Rows[i]["TinhTrang"].ToString();
+                P.MaNV = dt.Rows[i]["MaNV"].ToString();
+                P.MaDV = dt.Rows[i]["MaDV"].ToString();
+                lst.Add(P);
+            }
+            return lst;
+
+        }
+
+
 
 
     }
+
 
 
 }

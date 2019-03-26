@@ -8,12 +8,15 @@ using DTO;
 
 namespace BUS
 {
-   public class BUS_DichVu
+    public class BUS_DichVu
     {
         public static List<DichVu_DTO> TakeAllService(string IDKH)
         {
             return DichVu_DAO.takeServices(IDKH);
-           
+        }
+        public static List<DichVu_DTO> takeAllServiceFId(string ID)
+        {
+            return DichVu_DAO.takeServicesFId(ID);
         }
     }
 }
