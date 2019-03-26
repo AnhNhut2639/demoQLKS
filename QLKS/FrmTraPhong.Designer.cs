@@ -68,6 +68,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.btnXacNhanTT = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVuThanhToan)).BeginInit();
@@ -122,7 +123,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(290, 44);
+            this.groupBox2.Location = new System.Drawing.Point(290, 75);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(644, 743);
             this.groupBox2.TabIndex = 3;
@@ -443,11 +444,22 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "CMND :";
             // 
+            // btnXacNhanTT
+            // 
+            this.btnXacNhanTT.Location = new System.Drawing.Point(290, 23);
+            this.btnXacNhanTT.Name = "btnXacNhanTT";
+            this.btnXacNhanTT.Size = new System.Drawing.Size(109, 23);
+            this.btnXacNhanTT.TabIndex = 5;
+            this.btnXacNhanTT.Text = "Xác nhận ";
+            this.btnXacNhanTT.UseVisualStyleBackColor = true;
+            this.btnXacNhanTT.Click += new System.EventHandler(this.btnXacNhanTT_Click);
+            // 
             // FrmTraPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 822);
+            this.Controls.Add(this.btnXacNhanTT);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cbbKhachTP);
@@ -506,5 +518,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dtpNgayTraPhong;
+        private System.Windows.Forms.Button btnXacNhanTT;
     }
 }

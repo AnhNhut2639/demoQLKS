@@ -70,8 +70,7 @@ namespace QLKS
 
         private void cbbKhachTP_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            string id = cbbKhachTP.Text;
-            ShowInTXT(id);
+            
         }
 
         private void cbbKhachTP_Click(object sender, EventArgs e)
@@ -92,6 +91,13 @@ namespace QLKS
         private void cbbKhachTP_TextChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void btnXacNhanTT_Click(object sender, EventArgs e)
+        {
+            string id = cbbKhachTP.Text;
+           // MessageBox.Show(" " + id, "Thông báo");
+            ShowInTXT(id);
         }
     }
 }
