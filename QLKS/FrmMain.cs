@@ -188,7 +188,11 @@ namespace QLKS
 
             dgvKHDaDat.DataSource = BUS_KhachHang.takeCustomerAllID(id);
             dgvKHDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+            dgvDichVuDaDat.DataSource = BUS_DichVu.takeAllServiceFId(id);
+            dgvDichVuDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+          
+
 
 
         }

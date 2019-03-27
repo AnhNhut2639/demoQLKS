@@ -24,6 +24,7 @@ namespace QLKS
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
             this.Close();
+            // khi click vào sẽ cập nhật tình trạng phòng lại là trống 
         }
 
         private void FrmTraPhong_Load(object sender, EventArgs e)
@@ -31,7 +32,8 @@ namespace QLKS
             cbbKhachTP.DataSource = BUS_Phong.TakeAllRooms();
             cbbKhachTP.DisplayMember = "MaPhong";
             txtNVTT.Text = Ten;
-            txtNVTT.Enabled = false;
+            txtNVTT.Enabled = false; 
+            
         }
 
         private void cbbKhachTP_SelectedValueChanged(object sender, EventArgs e)
@@ -52,22 +54,13 @@ namespace QLKS
                     else
                         radNuTraPhong.Checked = true;
                     txtTuoiTraPhong.Text = item.Tuoi.ToString();
-                    txtLienLacTraPhong.Text = item.Sdt.ToString();
+                    txtLienLacTraPhong.Text ="0" +item.Sdt.ToString();
 
                 }  
                 
         }
 
-        void showTTThanhToan(string Id)
-        {
-            List<Phong_DTO> P = BUS_Phong.takeALLRoomsFId(Id);
-            foreach (Phong_DTO item in P)
-            {
-                txtTenPTT.Text = item.TenPhong.ToString();
-                txtLoaiPTT.Text = item.LoaiPhong.ToString();
-                txtGiaPhong.Text = item.GiaPhong.ToString();
-            }
-        }
+        
 
         void showService(string ID)
         {
@@ -111,6 +104,7 @@ namespace QLKS
             ShowInTXT(id);
             showTTThanhToan(id);
             showService(id);
+            loadMoney(id);
         }
 
         private void txtNgayNhanPhong_TextChanged(object sender, EventArgs e)
@@ -123,14 +117,53 @@ namespace QLKS
            
 
         }
+        void showTTThanhToan(string Id)
+        {
+            List<Phong_DTO> P = BUS_Phong.takeALLRoomsFId(Id);
+            foreach (Phong_DTO item in P)
+            {
+                txtTenPTT.Text = item.TenPhong.ToString();
+                txtLoaiPTT.Text = item.LoaiPhong.ToString();
+                txtGiaPhong.Text = item.GiaPhong.ToString();
+            }
+        }
+        void loadMoney(string id)
+        {
+            List<DichVu_DTO> D = BUS_DichVu.takeAllServiceFId(id);
+            foreach (DichVu_DTO item in D)
+            {
+                // txtTongTienDV.Text = item.GiaDV.ToString();
+                int SLuong = item.SoLuong;
+                int price = item.GiaDV;
+                int Money = SLuong * price;
+                txtTongTienDV.Text = Money.ToString();
+            }
+        }
 
         private void txtSoNgay_TextChanged(object sender, EventArgs e)
         {
+            
             int money = int.Parse(txtSoNgay.Text);
-            int result = money * 100000;
+            int price = int.Parse(txtGiaPhong.Text);
+            int result = money * price;
             txtTongTienTT.Text = result.ToString();
         }
 
+        private void txtTongTienTT_TextChanged(object sender, EventArgs e)
+        {
+            int money = int.Parse(txtTongTienTT.Text);
+            int price = int.Parse(txtTongTienDV.Text);
+            int result = money + price;
+            txtTraTien.Text = result.ToString();
+        
+        }
+        private void dgvDVuThanhToan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+        //    if (dgvDVuThanhToan.CurrentCell != null && dgvDVuThanhToan.CurrentCell.Value != null)
+        //    {
+        //        MessageBox.Show(dgvDVuThanhToan.CurrentCell.Value.ToString());
+        //    }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -148,5 +181,7 @@ namespace QLKS
 
 
         }
+
+        
     }
 }

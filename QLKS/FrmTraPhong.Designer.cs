@@ -37,7 +37,6 @@
             this.dtpNgayTraPhong = new System.Windows.Forms.DateTimePicker();
             this.txtNgayNhanPhong = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.btnHoaDon = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,7 +49,6 @@
             this.txtTenPTT = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,6 +68,10 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnXacNhanTT = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtTongTienDV = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtTraTien = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVuThanhToan)).BeginInit();
@@ -102,12 +104,15 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtTraTien);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.txtTongTienDV);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.dtpTEST);
             this.groupBox2.Controls.Add(this.txtNVTT);
             this.groupBox2.Controls.Add(this.dtpNgayTraPhong);
             this.groupBox2.Controls.Add(this.txtNgayNhanPhong);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.btnHoaDon);
             this.groupBox2.Controls.Add(this.pictureBox1);
@@ -120,7 +125,6 @@
             this.groupBox2.Controls.Add(this.txtTenPTT);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
@@ -176,13 +180,6 @@
             this.label8.TabIndex = 33;
             this.label8.Text = "Ngày Trả Phòng";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(410, 703);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(205, 20);
-            this.dateTimePicker1.TabIndex = 32;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -194,7 +191,7 @@
             // 
             // btnHoaDon
             // 
-            this.btnHoaDon.Location = new System.Drawing.Point(456, 625);
+            this.btnHoaDon.Location = new System.Drawing.Point(473, 659);
             this.btnHoaDon.Name = "btnHoaDon";
             this.btnHoaDon.Size = new System.Drawing.Size(99, 23);
             this.btnHoaDon.TabIndex = 29;
@@ -214,7 +211,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(54, 393);
+            this.label12.Location = new System.Drawing.Point(43, 377);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 13);
             this.label12.TabIndex = 27;
@@ -223,17 +220,19 @@
             // dgvDVuThanhToan
             // 
             this.dgvDVuThanhToan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDVuThanhToan.Location = new System.Drawing.Point(95, 432);
+            this.dgvDVuThanhToan.Location = new System.Drawing.Point(87, 393);
             this.dgvDVuThanhToan.Name = "dgvDVuThanhToan";
             this.dgvDVuThanhToan.Size = new System.Drawing.Size(451, 150);
             this.dgvDVuThanhToan.TabIndex = 26;
+            this.dgvDVuThanhToan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDVuThanhToan_CellClick);
             // 
             // txtTongTienTT
             // 
-            this.txtTongTienTT.Location = new System.Drawing.Point(187, 622);
+            this.txtTongTienTT.Location = new System.Drawing.Point(183, 623);
             this.txtTongTienTT.Name = "txtTongTienTT";
             this.txtTongTienTT.Size = new System.Drawing.Size(158, 20);
             this.txtTongTienTT.TabIndex = 19;
+            this.txtTongTienTT.TextChanged += new System.EventHandler(this.txtTongTienTT_TextChanged);
             // 
             // txtSoNgay
             // 
@@ -267,7 +266,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(24, 625);
+            this.label11.Location = new System.Drawing.Point(22, 686);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(109, 13);
             this.label11.TabIndex = 9;
@@ -281,15 +280,6 @@
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 7;
             this.label9.Text = "Số ngày :";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(301, 703);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Ngày thanh toán :";
             // 
             // label5
             // 
@@ -470,6 +460,38 @@
             this.btnXacNhanTT.UseVisualStyleBackColor = true;
             this.btnXacNhanTT.Click += new System.EventHandler(this.btnXacNhanTT_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(30, 580);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 13);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "Tổng phí dịch vụ :";
+            // 
+            // txtTongTienDV
+            // 
+            this.txtTongTienDV.Location = new System.Drawing.Point(183, 580);
+            this.txtTongTienDV.Name = "txtTongTienDV";
+            this.txtTongTienDV.Size = new System.Drawing.Size(158, 20);
+            this.txtTongTienDV.TabIndex = 39;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(30, 630);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(84, 13);
+            this.label19.TabIndex = 40;
+            this.label19.Text = "Phí thuê phòng ";
+            // 
+            // txtTraTien
+            // 
+            this.txtTraTien.Location = new System.Drawing.Point(183, 679);
+            this.txtTraTien.Name = "txtTraTien";
+            this.txtTraTien.Size = new System.Drawing.Size(158, 20);
+            this.txtTraTien.TabIndex = 41;
+            // 
             // FrmTraPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -506,7 +528,6 @@
         private System.Windows.Forms.TextBox txtTenPTT;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -531,10 +552,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNgayNhanPhong;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dtpNgayTraPhong;
         private System.Windows.Forms.Button btnXacNhanTT;
         private System.Windows.Forms.TextBox txtNVTT;
         private System.Windows.Forms.DateTimePicker dtpTEST;
+        private System.Windows.Forms.TextBox txtTongTienDV;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtTraTien;
+        private System.Windows.Forms.Label label19;
     }
 }
