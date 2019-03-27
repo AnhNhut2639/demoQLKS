@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbbKhachTP = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtpTEST = new System.Windows.Forms.DateTimePicker();
+            this.txtNVTT = new System.Windows.Forms.TextBox();
             this.dtpNgayTraPhong = new System.Windows.Forms.DateTimePicker();
             this.txtNgayNhanPhong = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -41,7 +43,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvDVuThanhToan = new System.Windows.Forms.DataGridView();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtTongTienTT = new System.Windows.Forms.TextBox();
             this.txtSoNgay = new System.Windows.Forms.TextBox();
             this.txtGiaPhong = new System.Windows.Forms.TextBox();
             this.txtLoaiPTT = new System.Windows.Forms.TextBox();
@@ -68,7 +70,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnXacNhanTT = new System.Windows.Forms.Button();
-            this.txtNVTT = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVuThanhToan)).BeginInit();
@@ -101,6 +102,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dtpTEST);
             this.groupBox2.Controls.Add(this.txtNVTT);
             this.groupBox2.Controls.Add(this.dtpNgayTraPhong);
             this.groupBox2.Controls.Add(this.txtNgayNhanPhong);
@@ -111,7 +113,7 @@
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.dgvDVuThanhToan);
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.txtTongTienTT);
             this.groupBox2.Controls.Add(this.txtSoNgay);
             this.groupBox2.Controls.Add(this.txtGiaPhong);
             this.groupBox2.Controls.Add(this.txtLoaiPTT);
@@ -130,12 +132,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Thanh Toán :";
             // 
+            // dtpTEST
+            // 
+            this.dtpTEST.CustomFormat = "dd/MM/yyyy";
+            this.dtpTEST.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTEST.Location = new System.Drawing.Point(113, 214);
+            this.dtpTEST.Name = "dtpTEST";
+            this.dtpTEST.Size = new System.Drawing.Size(185, 20);
+            this.dtpTEST.TabIndex = 37;
+            this.dtpTEST.ValueChanged += new System.EventHandler(this.dtpTEST_ValueChanged);
+            // 
+            // txtNVTT
+            // 
+            this.txtNVTT.Location = new System.Drawing.Point(455, 330);
+            this.txtNVTT.Name = "txtNVTT";
+            this.txtNVTT.Size = new System.Drawing.Size(138, 20);
+            this.txtNVTT.TabIndex = 36;
+            // 
             // dtpNgayTraPhong
             // 
-            this.dtpNgayTraPhong.Location = new System.Drawing.Point(128, 224);
+            this.dtpNgayTraPhong.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayTraPhong.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayTraPhong.Location = new System.Drawing.Point(113, 276);
             this.dtpNgayTraPhong.Name = "dtpNgayTraPhong";
             this.dtpNgayTraPhong.Size = new System.Drawing.Size(185, 20);
             this.dtpNgayTraPhong.TabIndex = 35;
+            this.dtpNgayTraPhong.ValueChanged += new System.EventHandler(this.dtpNgayTraPhong_ValueChanged);
             // 
             // txtNgayNhanPhong
             // 
@@ -143,11 +165,12 @@
             this.txtNgayNhanPhong.Name = "txtNgayNhanPhong";
             this.txtNgayNhanPhong.Size = new System.Drawing.Size(136, 20);
             this.txtNgayNhanPhong.TabIndex = 34;
+            this.txtNgayNhanPhong.TextChanged += new System.EventHandler(this.txtNgayNhanPhong_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 231);
+            this.label8.Location = new System.Drawing.Point(22, 283);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 13);
             this.label8.TabIndex = 33;
@@ -205,19 +228,20 @@
             this.dgvDVuThanhToan.Size = new System.Drawing.Size(451, 150);
             this.dgvDVuThanhToan.TabIndex = 26;
             // 
-            // textBox7
+            // txtTongTienTT
             // 
-            this.textBox7.Location = new System.Drawing.Point(187, 622);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(158, 20);
-            this.textBox7.TabIndex = 19;
+            this.txtTongTienTT.Location = new System.Drawing.Point(187, 622);
+            this.txtTongTienTT.Name = "txtTongTienTT";
+            this.txtTongTienTT.Size = new System.Drawing.Size(158, 20);
+            this.txtTongTienTT.TabIndex = 19;
             // 
             // txtSoNgay
             // 
-            this.txtSoNgay.Location = new System.Drawing.Point(128, 286);
+            this.txtSoNgay.Location = new System.Drawing.Point(152, 333);
             this.txtSoNgay.Name = "txtSoNgay";
             this.txtSoNgay.Size = new System.Drawing.Size(136, 20);
             this.txtSoNgay.TabIndex = 18;
+            this.txtSoNgay.TextChanged += new System.EventHandler(this.txtSoNgay_TextChanged);
             // 
             // txtGiaPhong
             // 
@@ -252,7 +276,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(52, 286);
+            this.label9.Location = new System.Drawing.Point(41, 333);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 7;
@@ -446,13 +470,6 @@
             this.btnXacNhanTT.UseVisualStyleBackColor = true;
             this.btnXacNhanTT.Click += new System.EventHandler(this.btnXacNhanTT_Click);
             // 
-            // txtNVTT
-            // 
-            this.txtNVTT.Location = new System.Drawing.Point(455, 330);
-            this.txtNVTT.Name = "txtNVTT";
-            this.txtNVTT.Size = new System.Drawing.Size(138, 20);
-            this.txtNVTT.TabIndex = 36;
-            // 
             // FrmTraPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -482,7 +499,7 @@
         private System.Windows.Forms.ComboBox cbbKhachTP;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvDVuThanhToan;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtTongTienTT;
         private System.Windows.Forms.TextBox txtSoNgay;
         private System.Windows.Forms.TextBox txtGiaPhong;
         private System.Windows.Forms.TextBox txtLoaiPTT;
@@ -518,5 +535,6 @@
         private System.Windows.Forms.DateTimePicker dtpNgayTraPhong;
         private System.Windows.Forms.Button btnXacNhanTT;
         private System.Windows.Forms.TextBox txtNVTT;
+        private System.Windows.Forms.DateTimePicker dtpTEST;
     }
 }

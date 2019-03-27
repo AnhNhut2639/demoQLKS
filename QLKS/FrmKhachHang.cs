@@ -41,11 +41,31 @@ namespace QLKS
             cbbChonPhong.DataSource = BUS_Phong.TakeAllEmptyRooms();
             cbbChonPhong.DisplayMember = "TenPhong";
             cbbChonPhong.ValueMember = "MaPhong";
+            ShowDGVKhachHang();
         }
+
+        void ShowDGVKhachHang()
+        {
+            List<KhachHang_DTO> lst = BUS_KhachHang.TakeAllCustomers();
+            dgvKhachHang.DataSource = lst;
+            dgvKhachHang.Columns["MaKH"].HeaderText = "Mã Khách hàng";
+            dgvKhachHang.Columns["TenKH"].HeaderText = "Tên Khách hàng";
+            dgvKhachHang.Columns["CMND"].HeaderText = "CMND";
+            dgvKhachHang.Columns["QuocTich"].HeaderText = "Quốc Tịch";
+            dgvKhachHang.Columns["GioiTinh"].HeaderText = "Giới Tính";
+            dgvKhachHang.Columns["Tuoi"].HeaderText = "Tuổi";
+            dgvKhachHang.Columns["SDT"].HeaderText = "Liên Lạc";
+            dgvKhachHang.Columns["MaPhong"].HeaderText = "Mã Phòng";
+        }
+
         void showService(string ID)
         {
             dgvDichVuKH.DataSource = BUS_DichVu.TakeAllService(ID);
             dgvDichVuKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDichVuKH.Columns["MaDV"].HeaderText = "Mã dịch vụ";
+            dgvDichVuKH.Columns["TenDV"].HeaderText = "Tên dịch vụ";
+            dgvDichVuKH.Columns["SoLuong"].HeaderText = "Số lượng";
+            dgvDichVuKH.Columns["GiaDV"].HeaderText = "Giá dịch vụ";
         }
 
         private void dgvKhachHang_Click(object sender, EventArgs e)

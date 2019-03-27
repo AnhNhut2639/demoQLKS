@@ -97,6 +97,7 @@
             // 
             // dtpNamSinhNV
             // 
+            this.dtpNamSinhNV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNamSinhNV.Location = new System.Drawing.Point(96, 173);
             this.dtpNamSinhNV.Name = "dtpNamSinhNV";
             this.dtpNamSinhNV.Size = new System.Drawing.Size(200, 20);

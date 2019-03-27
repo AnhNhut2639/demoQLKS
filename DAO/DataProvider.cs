@@ -17,6 +17,12 @@ namespace DAO
             conn.Open();
             return conn;
         }
+        //đóng kết nối 
+
+        public static void DongKetNoi(SqlConnection KetNoi)
+        {
+            KetNoi.Close();
+        }
         //thực hiện truy vấn và trả về bảng dữ liệu
         public static DataTable dataSQuery(string sQuery , SqlConnection KetNoi)
         {

@@ -16,9 +16,6 @@ namespace DAO
         public static List<KhachHang_DTO> takeCustomers()
         {
             string sQuery = @"select *from KhachHang";
-            // SqlDataAdapter da = new SqlDataAdapter(sQuery, con);
-            //  DataTable dt = new DataTable();
-            //da.Fill(dt);
             conn = DataProvider.Connect();
             DataTable dt = DataProvider.dataSQuery(sQuery, conn);
             if (dt.Rows.Count == 0)
@@ -41,6 +38,7 @@ namespace DAO
 
                 Cus.Add(K);
             }
+            DataProvider.DongKetNoi(conn);
             return Cus;
 
         }
@@ -70,6 +68,7 @@ namespace DAO
 
                 Cus.Add(K);
             }
+            DataProvider.DongKetNoi(conn);
             return Cus;
 
         }
@@ -101,6 +100,7 @@ namespace DAO
                 Cus.Add(K);
             }
             return Cus;
+            DataProvider.DongKetNoi(conn);
         }
 
     }

@@ -112,5 +112,41 @@ namespace QLKS
             showTTThanhToan(id);
             showService(id);
         }
+
+        private void txtNgayNhanPhong_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void dtpNgayTraPhong_ValueChanged(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void txtSoNgay_TextChanged(object sender, EventArgs e)
+        {
+            int money = int.Parse(txtSoNgay.Text);
+            int result = money * 100000;
+            txtTongTienTT.Text = result.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dtpTEST_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime date1 = Convert.ToDateTime(dtpTEST.Text);
+            DateTime date2 = Convert.ToDateTime(dtpNgayTraPhong.Text);
+            TimeSpan time = date2.Subtract(date1);
+            int days = time.Days;
+            txtSoNgay.Text = days.ToString();
+          //  txtSoThang.Text = Math.Floor(days / 30.0).ToString();
+            //txtSoNam.Text = Math.Floor(days / 365.0).ToString();
+
+
+        }
     }
 }

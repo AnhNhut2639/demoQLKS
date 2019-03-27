@@ -18,5 +18,10 @@ namespace BUS
         {
             return DichVu_DAO.takeServicesFId(ID);
         }
+
+        public static List<DichVu_DTO> takeAllServiceTest()
+        {
+            return DichVu_DAO.takeServicesTest();
+        }
     }
 }
