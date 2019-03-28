@@ -32,7 +32,7 @@ namespace DAO
                 K.Cmnd = int.Parse(dt.Rows[i]["CMND"].ToString());
                 K.QuocTich = dt.Rows[i]["QuocTich"].ToString();
                 K.GioiTinh = dt.Rows[i]["GioiTinh"].ToString();
-                K.Tuoi = int.Parse(dt.Rows[i]["Tuoi"].ToString());
+                K.NgaySinh = DateTime.Parse(dt.Rows[i]["NgaySinh"].ToString());
                 K.Sdt = int.Parse(dt.Rows[i]["SDT"].ToString());
                 K.MaPhong = dt.Rows[i]["MaPhong"].ToString();
 
@@ -62,7 +62,7 @@ namespace DAO
                 K.Cmnd = int.Parse(dt.Rows[i]["CMND"].ToString());
                 K.QuocTich = dt.Rows[i]["QuocTich"].ToString();
                 K.GioiTinh = dt.Rows[i]["GioiTinh"].ToString();
-                K.Tuoi = int.Parse(dt.Rows[i]["Tuoi"].ToString());
+                K.NgaySinh = DateTime.Parse(dt.Rows[i]["NgaySinh"].ToString());
                 K.Sdt = int.Parse(dt.Rows[i]["SDT"].ToString());
                 K.MaPhong = dt.Rows[i]["MaPhong"].ToString();
 
@@ -93,7 +93,7 @@ namespace DAO
                 K.Cmnd = int.Parse(dt.Rows[i]["CMND"].ToString());
                 K.QuocTich = dt.Rows[i]["QuocTich"].ToString();
                 K.GioiTinh = dt.Rows[i]["GioiTinh"].ToString();
-                K.Tuoi = int.Parse(dt.Rows[i]["Tuoi"].ToString());
+                K.NgaySinh = DateTime.Parse(dt.Rows[i]["NgaySinh"].ToString());
                 K.Sdt = int.Parse(dt.Rows[i]["SDT"].ToString());
               //  K.MaPhong = dt.Rows[i]["MaPhong"].ToString();
 

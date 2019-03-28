@@ -12,7 +12,8 @@ namespace DAO
     {
         public static SqlConnection Connect()
         {
-            string s = @"Data Source=DELIMA\SQLEXPRESS;Initial Catalog=QLKS;Integrated Security=True";
+            // string s = @"Data Source=DELIMA\SQLEXPRESS;Initial Catalog=QLKS;Integrated Security=True";
+            string s = @"Data Source=DELIMA\SQLEXPRESS;Initial Catalog=QLKS2;Integrated Security=True";
             SqlConnection conn = new SqlConnection(s);
             conn.Open();
             return conn;

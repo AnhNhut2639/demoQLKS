@@ -13,6 +13,7 @@ namespace DTO
         private string loaiPhong;
         private int giaPhong;
         private string tinhTrang;
+        private DateTime ngayDatPhong; // 
         private string maNV;
         private string maDV;
 
@@ -21,7 +22,9 @@ namespace DTO
         public string LoaiPhong { get => loaiPhong; set => loaiPhong = value; }
         public int GiaPhong { get => giaPhong; set => giaPhong = value; }
         public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
+        public DateTime NgayDatPhong { get => ngayDatPhong; set => ngayDatPhong = value; } // 
         public string MaNV { get => maNV; set => maNV = value; }
         public string MaDV { get => maDV; set => maDV = value; }
+        
     }
 }

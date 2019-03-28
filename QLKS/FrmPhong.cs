@@ -46,10 +46,12 @@ namespace QLKS
             txtMaPhong.Text = dr.Cells["MaPhong"].Value.ToString();
             txtTenPhong.Text = dr.Cells["TenPhong"].Value.ToString();
             cbbLoaiPhong.Text = dr.Cells["LoaiPhong"].Value.ToString();
+            txtGiaPhong.Text = dr.Cells["GiaPhong"].Value.ToString();
             cbbTinhTrang.Text = dr.Cells["TinhTrang"].Value.ToString();
+            dtpNgayDatPhong.Text = dr.Cells["NgayDatPhong"].Value.ToString();
             // string tmp = dr.Cells["MaPhong"].Value.ToString();
             //  MessageBox.Show(" " + tmp, "Thông báo");
-            
+
 
         }
 

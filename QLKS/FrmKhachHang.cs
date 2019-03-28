@@ -53,7 +53,7 @@ namespace QLKS
             dgvKhachHang.Columns["CMND"].HeaderText = "CMND";
             dgvKhachHang.Columns["QuocTich"].HeaderText = "Quốc Tịch";
             dgvKhachHang.Columns["GioiTinh"].HeaderText = "Giới Tính";
-            dgvKhachHang.Columns["Tuoi"].HeaderText = "Tuổi";
+            dgvKhachHang.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
             dgvKhachHang.Columns["SDT"].HeaderText = "Liên Lạc";
             dgvKhachHang.Columns["MaPhong"].HeaderText = "Mã Phòng";
         }
@@ -79,7 +79,9 @@ namespace QLKS
                 radNam.Checked = true;
             else
                 radNu.Checked = true;
-            txtTuoi.Text = dr.Cells["Tuoi"].Value.ToString();
+            dtpNgaySinhKH.Text = dr.Cells["NgaySinh"].Value.ToString();
+            // txtTuoi.Text = dr.Cells["Tuoi"].Value.ToString();
+
             txtLienLac.Text = dr.Cells["SDT"].Value.ToString();
             cbbTimKiemTheoTen.Text = dr.Cells["TenKH"].Value.ToString();
             string makh = dr.Cells["MaKH"].Value.ToString();

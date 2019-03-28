@@ -41,12 +41,20 @@
             this.btnThemPhong = new System.Windows.Forms.Button();
             this.btnXoaPhong = new System.Windows.Forms.Button();
             this.btnThoatPhong = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtGiaPhong = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpNgayDatPhong = new System.Windows.Forms.DateTimePicker();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoadPhong)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dtpNgayDatPhong);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.txtGiaPhong);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.cbbTinhTrang);
             this.groupBox2.Controls.Add(this.cbbLoaiPhong);
             this.groupBox2.Controls.Add(this.txtTenPhong);
@@ -57,7 +65,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(305, 36);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(686, 181);
+            this.groupBox2.Size = new System.Drawing.Size(686, 207);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Phòng :";
@@ -73,9 +81,9 @@
             // cbbLoaiPhong
             // 
             this.cbbLoaiPhong.FormattingEnabled = true;
-            this.cbbLoaiPhong.Location = new System.Drawing.Point(429, 30);
+            this.cbbLoaiPhong.Location = new System.Drawing.Point(121, 157);
             this.cbbLoaiPhong.Name = "cbbLoaiPhong";
-            this.cbbLoaiPhong.Size = new System.Drawing.Size(150, 21);
+            this.cbbLoaiPhong.Size = new System.Drawing.Size(173, 21);
             this.cbbLoaiPhong.TabIndex = 6;
             this.cbbLoaiPhong.SelectedIndexChanged += new System.EventHandler(this.cbbLoaiPhong_SelectedIndexChanged);
             this.cbbLoaiPhong.SelectionChangeCommitted += new System.EventHandler(this.cbbLoaiPhong_SelectionChangeCommitted);
@@ -110,7 +118,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(335, 37);
+            this.label9.Location = new System.Drawing.Point(35, 165);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 13);
             this.label9.TabIndex = 2;
@@ -137,7 +145,7 @@
             // dgvLoadPhong
             // 
             this.dgvLoadPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLoadPhong.Location = new System.Drawing.Point(305, 246);
+            this.dgvLoadPhong.Location = new System.Drawing.Point(294, 293);
             this.dgvLoadPhong.Name = "dgvLoadPhong";
             this.dgvLoadPhong.Size = new System.Drawing.Size(686, 171);
             this.dgvLoadPhong.TabIndex = 2;
@@ -146,7 +154,7 @@
             // 
             // btnThemPhong
             // 
-            this.btnThemPhong.Location = new System.Drawing.Point(464, 454);
+            this.btnThemPhong.Location = new System.Drawing.Point(426, 487);
             this.btnThemPhong.Name = "btnThemPhong";
             this.btnThemPhong.Size = new System.Drawing.Size(75, 23);
             this.btnThemPhong.TabIndex = 3;
@@ -155,7 +163,7 @@
             // 
             // btnXoaPhong
             // 
-            this.btnXoaPhong.Location = new System.Drawing.Point(703, 454);
+            this.btnXoaPhong.Location = new System.Drawing.Point(691, 487);
             this.btnXoaPhong.Name = "btnXoaPhong";
             this.btnXoaPhong.Size = new System.Drawing.Size(75, 23);
             this.btnXoaPhong.TabIndex = 3;
@@ -171,6 +179,39 @@
             this.btnThoatPhong.Text = "Thoát";
             this.btnThoatPhong.UseVisualStyleBackColor = true;
             this.btnThoatPhong.Click += new System.EventHandler(this.btnThoatPhong_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(350, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Giá :  ";
+            // 
+            // txtGiaPhong
+            // 
+            this.txtGiaPhong.Location = new System.Drawing.Point(429, 41);
+            this.txtGiaPhong.Name = "txtGiaPhong";
+            this.txtGiaPhong.Size = new System.Drawing.Size(150, 20);
+            this.txtGiaPhong.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(337, 160);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Ngày đặt Phòng :";
+            // 
+            // dtpNgayDatPhong
+            // 
+            this.dtpNgayDatPhong.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayDatPhong.Location = new System.Drawing.Point(434, 159);
+            this.dtpNgayDatPhong.Name = "dtpNgayDatPhong";
+            this.dtpNgayDatPhong.Size = new System.Drawing.Size(145, 20);
+            this.dtpNgayDatPhong.TabIndex = 12;
             // 
             // FrmPhong
             // 
@@ -206,5 +247,9 @@
         private System.Windows.Forms.Button btnThemPhong;
         private System.Windows.Forms.Button btnXoaPhong;
         private System.Windows.Forms.Button btnThoatPhong;
+        private System.Windows.Forms.DateTimePicker dtpNgayDatPhong;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtGiaPhong;
+        private System.Windows.Forms.Label label1;
     }
 }

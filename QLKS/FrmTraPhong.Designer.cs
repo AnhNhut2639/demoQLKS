@@ -32,6 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbbKhachTP = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTraTien = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtTongTienDV = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.dtpTEST = new System.Windows.Forms.DateTimePicker();
             this.txtNVTT = new System.Windows.Forms.TextBox();
             this.dtpNgayTraPhong = new System.Windows.Forms.DateTimePicker();
@@ -57,21 +61,17 @@
             this.radNuTraPhong = new System.Windows.Forms.RadioButton();
             this.radNamTraPhong = new System.Windows.Forms.RadioButton();
             this.txtLienLacTraPhong = new System.Windows.Forms.TextBox();
-            this.txtTuoiTraPhong = new System.Windows.Forms.TextBox();
             this.txtQuocTichTraPhong = new System.Windows.Forms.TextBox();
             this.txtCMNDKHTraPhong = new System.Windows.Forms.TextBox();
             this.txtTenKHTraPhong = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnXacNhanTT = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtTongTienDV = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtTraTien = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtpNgaySinhKHTraPhong = new System.Windows.Forms.DateTimePicker();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVuThanhToan)).BeginInit();
@@ -135,6 +135,39 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Thanh Toán :";
+            // 
+            // txtTraTien
+            // 
+            this.txtTraTien.Location = new System.Drawing.Point(183, 679);
+            this.txtTraTien.Name = "txtTraTien";
+            this.txtTraTien.Size = new System.Drawing.Size(158, 20);
+            this.txtTraTien.TabIndex = 41;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(30, 630);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(84, 13);
+            this.label19.TabIndex = 40;
+            this.label19.Text = "Phí thuê phòng ";
+            // 
+            // txtTongTienDV
+            // 
+            this.txtTongTienDV.Location = new System.Drawing.Point(183, 580);
+            this.txtTongTienDV.Name = "txtTongTienDV";
+            this.txtTongTienDV.Size = new System.Drawing.Size(158, 20);
+            this.txtTongTienDV.TabIndex = 39;
+            this.txtTongTienDV.TextChanged += new System.EventHandler(this.txtTongTienDV_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(30, 580);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 13);
+            this.label10.TabIndex = 38;
+            this.label10.Text = "Tổng phí dịch vụ :";
             // 
             // dtpTEST
             // 
@@ -284,7 +317,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 181);
+            this.label5.Location = new System.Drawing.Point(6, 220);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 13);
             this.label5.TabIndex = 3;
@@ -319,16 +352,16 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dtpNgaySinhKHTraPhong);
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.radNuTraPhong);
             this.groupBox3.Controls.Add(this.radNamTraPhong);
             this.groupBox3.Controls.Add(this.txtLienLacTraPhong);
-            this.groupBox3.Controls.Add(this.txtTuoiTraPhong);
             this.groupBox3.Controls.Add(this.txtQuocTichTraPhong);
             this.groupBox3.Controls.Add(this.txtCMNDKHTraPhong);
             this.groupBox3.Controls.Add(this.txtTenKHTraPhong);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label18);
@@ -367,13 +400,6 @@
             this.txtLienLacTraPhong.Name = "txtLienLacTraPhong";
             this.txtLienLacTraPhong.Size = new System.Drawing.Size(144, 20);
             this.txtLienLacTraPhong.TabIndex = 14;
-            // 
-            // txtTuoiTraPhong
-            // 
-            this.txtTuoiTraPhong.Location = new System.Drawing.Point(95, 255);
-            this.txtTuoiTraPhong.Name = "txtTuoiTraPhong";
-            this.txtTuoiTraPhong.Size = new System.Drawing.Size(144, 20);
-            this.txtTuoiTraPhong.TabIndex = 13;
             // 
             // txtQuocTichTraPhong
             // 
@@ -414,15 +440,6 @@
             this.label14.TabIndex = 4;
             this.label14.Text = "Liên lạc :";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(19, 258);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(34, 13);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "Tuổi :";
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -460,37 +477,22 @@
             this.btnXacNhanTT.UseVisualStyleBackColor = true;
             this.btnXacNhanTT.Click += new System.EventHandler(this.btnXacNhanTT_Click);
             // 
-            // label10
+            // label7
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(30, 580);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 13);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "Tổng phí dịch vụ :";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 258);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Ngày Sinh : ";
             // 
-            // txtTongTienDV
+            // dtpNgaySinhKHTraPhong
             // 
-            this.txtTongTienDV.Location = new System.Drawing.Point(183, 580);
-            this.txtTongTienDV.Name = "txtTongTienDV";
-            this.txtTongTienDV.Size = new System.Drawing.Size(158, 20);
-            this.txtTongTienDV.TabIndex = 39;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(30, 630);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(84, 13);
-            this.label19.TabIndex = 40;
-            this.label19.Text = "Phí thuê phòng ";
-            // 
-            // txtTraTien
-            // 
-            this.txtTraTien.Location = new System.Drawing.Point(183, 679);
-            this.txtTraTien.Name = "txtTraTien";
-            this.txtTraTien.Size = new System.Drawing.Size(158, 20);
-            this.txtTraTien.TabIndex = 41;
+            this.dtpNgaySinhKHTraPhong.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgaySinhKHTraPhong.Location = new System.Drawing.Point(90, 252);
+            this.dtpNgaySinhKHTraPhong.Name = "dtpNgaySinhKHTraPhong";
+            this.dtpNgaySinhKHTraPhong.Size = new System.Drawing.Size(145, 20);
+            this.dtpNgaySinhKHTraPhong.TabIndex = 18;
             // 
             // FrmTraPhong
             // 
@@ -538,13 +540,11 @@
         private System.Windows.Forms.RadioButton radNuTraPhong;
         private System.Windows.Forms.RadioButton radNamTraPhong;
         private System.Windows.Forms.TextBox txtLienLacTraPhong;
-        private System.Windows.Forms.TextBox txtTuoiTraPhong;
         private System.Windows.Forms.TextBox txtQuocTichTraPhong;
         private System.Windows.Forms.TextBox txtCMNDKHTraPhong;
         private System.Windows.Forms.TextBox txtTenKHTraPhong;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
@@ -560,5 +560,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtTraTien;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinhKHTraPhong;
+        private System.Windows.Forms.Label label7;
     }
 }

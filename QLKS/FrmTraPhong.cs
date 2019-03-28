@@ -29,8 +29,9 @@ namespace QLKS
 
         private void FrmTraPhong_Load(object sender, EventArgs e)
         {
-            cbbKhachTP.DataSource = BUS_Phong.TakeAllRooms();
+            cbbKhachTP.DataSource = BUS_Phong.TakeAllOderedRooms();
             cbbKhachTP.DisplayMember = "MaPhong";
+            cbbKhachTP.ValueMember = "MaPhong";
             txtNVTT.Text = Ten;
             txtNVTT.Enabled = false; 
             
@@ -53,7 +54,8 @@ namespace QLKS
                         radNamTraPhong.Checked = true;
                     else
                         radNuTraPhong.Checked = true;
-                    txtTuoiTraPhong.Text = item.Tuoi.ToString();
+                // txtTuoiTraPhong.Text = item.Tuoi.ToString();
+                dtpNgaySinhKHTraPhong.Text = item.NgaySinh.ToString();
                     txtLienLacTraPhong.Text ="0" +item.Sdt.ToString();
 
                 }  
@@ -85,7 +87,7 @@ namespace QLKS
 
         private void cbbKhachTP_ValueMemberChanged(object sender, EventArgs e)
         {
-            
+           
         }
 
         private void cbbKhachTP_DisplayMemberChanged(object sender, EventArgs e)
@@ -109,7 +111,7 @@ namespace QLKS
 
         private void txtNgayNhanPhong_TextChanged(object sender, EventArgs e)
         {
-          
+            
         }
 
         private void dtpNgayTraPhong_ValueChanged(object sender, EventArgs e)
@@ -125,6 +127,7 @@ namespace QLKS
                 txtTenPTT.Text = item.TenPhong.ToString();
                 txtLoaiPTT.Text = item.LoaiPhong.ToString();
                 txtGiaPhong.Text = item.GiaPhong.ToString();
+                dtpTEST.Text = item.NgayDatPhong.ToString();
             }
         }
         void loadMoney(string id)
@@ -142,20 +145,22 @@ namespace QLKS
 
         private void txtSoNgay_TextChanged(object sender, EventArgs e)
         {
-            
+
             int money = int.Parse(txtSoNgay.Text);
             int price = int.Parse(txtGiaPhong.Text);
             int result = money * price;
             txtTongTienTT.Text = result.ToString();
+
+            //
+
+           
         }
 
         private void txtTongTienTT_TextChanged(object sender, EventArgs e)
         {
-            int money = int.Parse(txtTongTienTT.Text);
-            int price = int.Parse(txtTongTienDV.Text);
-            int result = money + price;
-            txtTraTien.Text = result.ToString();
-        
+
+            
+
         }
         private void dgvDVuThanhToan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -182,6 +187,12 @@ namespace QLKS
 
         }
 
-        
+        private void txtTongTienDV_TextChanged(object sender, EventArgs e)
+        {
+            int moneyFinal = int.Parse(txtTongTienTT.Text);
+            int priceFinal = int.Parse(txtTongTienDV.Text);
+            int resultFinal = moneyFinal + priceFinal;
+            txtTraTien.Text = resultFinal.ToString();
+        }
     }
 }

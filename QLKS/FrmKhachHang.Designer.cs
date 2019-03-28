@@ -50,7 +50,6 @@
             this.radNu = new System.Windows.Forms.RadioButton();
             this.radNam = new System.Windows.Forms.RadioButton();
             this.txtLienLac = new System.Windows.Forms.TextBox();
-            this.txtTuoi = new System.Windows.Forms.TextBox();
             this.txtQuocTich = new System.Windows.Forms.TextBox();
             this.txtCMND = new System.Windows.Forms.TextBox();
             this.txtTenKH = new System.Windows.Forms.TextBox();
@@ -59,11 +58,12 @@
             this.btnThemKH = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dtpNgaySinhKH = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDichVuKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
@@ -135,6 +135,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.dtpNgaySinhKH);
             this.groupBox1.Controls.Add(this.cbbChonPhong);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.button2);
@@ -150,7 +152,6 @@
             this.groupBox1.Controls.Add(this.radNu);
             this.groupBox1.Controls.Add(this.radNam);
             this.groupBox1.Controls.Add(this.txtLienLac);
-            this.groupBox1.Controls.Add(this.txtTuoi);
             this.groupBox1.Controls.Add(this.txtQuocTich);
             this.groupBox1.Controls.Add(this.txtCMND);
             this.groupBox1.Controls.Add(this.txtTenKH);
@@ -159,7 +160,6 @@
             this.groupBox1.Controls.Add(this.btnThemKH);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -298,13 +298,6 @@
             this.txtLienLac.Size = new System.Drawing.Size(144, 20);
             this.txtLienLac.TabIndex = 14;
             // 
-            // txtTuoi
-            // 
-            this.txtTuoi.Location = new System.Drawing.Point(95, 255);
-            this.txtTuoi.Name = "txtTuoi";
-            this.txtTuoi.Size = new System.Drawing.Size(144, 20);
-            this.txtTuoi.TabIndex = 13;
-            // 
             // txtQuocTich
             // 
             this.txtQuocTich.Location = new System.Drawing.Point(99, 150);
@@ -371,15 +364,6 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Liên lạc :";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 258);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Tuổi :";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -419,6 +403,23 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Thông tin khách hàng ";
             // 
+            // dtpNgaySinhKH
+            // 
+            this.dtpNgaySinhKH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgaySinhKH.Location = new System.Drawing.Point(95, 259);
+            this.dtpNgaySinhKH.Name = "dtpNgaySinhKH";
+            this.dtpNgaySinhKH.Size = new System.Drawing.Size(144, 20);
+            this.dtpNgaySinhKH.TabIndex = 29;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(29, 259);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Ngày Sinh";
+            // 
             // FrmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,7 +451,6 @@
         private System.Windows.Forms.Button btnThemKH;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -461,7 +461,6 @@
         private System.Windows.Forms.RadioButton radNu;
         private System.Windows.Forms.RadioButton radNam;
         private System.Windows.Forms.TextBox txtLienLac;
-        private System.Windows.Forms.TextBox txtTuoi;
         private System.Windows.Forms.TextBox txtQuocTich;
         private System.Windows.Forms.TextBox txtCMND;
         private System.Windows.Forms.TextBox txtTenKH;
@@ -479,5 +478,7 @@
         private System.Windows.Forms.ComboBox cbbTimKiemTheoTen;
         private System.Windows.Forms.ComboBox cbbChonPhong;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinhKH;
     }
 }

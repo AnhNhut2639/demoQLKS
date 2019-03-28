@@ -37,6 +37,7 @@ namespace DAO
                 P.LoaiPhong = dt.Rows[i]["LoaiPhong"].ToString();
                 P.GiaPhong = int.Parse(dt.Rows[i]["GiaPhong"].ToString());
                 P.TinhTrang = dt.Rows[i]["TinhTrang"].ToString();
+                P.NgayDatPhong = DateTime.Parse(dt.Rows[i]["NgayDatPhong"].ToString());
                 P.MaNV = dt.Rows[i]["MaNV"].ToString();
                 P.MaDV = dt.Rows[i]["MaDV"].ToString();
                 lst.Add(P);
@@ -66,6 +67,7 @@ namespace DAO
                 P.LoaiPhong = dt.Rows[i]["LoaiPhong"].ToString();
                 P.GiaPhong = int.Parse(dt.Rows[i]["GiaPhong"].ToString());
                 P.TinhTrang = dt.Rows[i]["TinhTrang"].ToString();
+                P.NgayDatPhong = DateTime.Parse(dt.Rows[i]["NgayDatPhong"].ToString());
                 P.MaNV = dt.Rows[i]["MaNV"].ToString();
                 P.MaDV = dt.Rows[i]["MaDV"].ToString();
                 lst.Add(P);
@@ -91,6 +93,7 @@ namespace DAO
                 P.LoaiPhong = dt.Rows[i]["LoaiPhong"].ToString();
                 P.GiaPhong = int.Parse(dt.Rows[i]["GiaPhong"].ToString());
                 P.TinhTrang = dt.Rows[i]["TinhTrang"].ToString();
+                P.NgayDatPhong = DateTime.Parse(dt.Rows[i]["NgayDatPhong"].ToString());
                 P.MaNV = dt.Rows[i]["MaNV"].ToString();
                 P.MaDV = dt.Rows[i]["MaDV"].ToString();
                 lst.Add(P);
@@ -116,6 +119,7 @@ namespace DAO
                 P.LoaiPhong = dt.Rows[i]["LoaiPhong"].ToString();
                 P.GiaPhong = int.Parse(dt.Rows[i]["GiaPhong"].ToString());
                 P.TinhTrang = dt.Rows[i]["TinhTrang"].ToString();
+                P.NgayDatPhong = DateTime.Parse(dt.Rows[i]["NgayDatPhong"].ToString());
                 P.MaNV = dt.Rows[i]["MaNV"].ToString();
                 P.MaDV = dt.Rows[i]["MaDV"].ToString();
                 lst.Add(P);
