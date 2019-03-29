@@ -33,7 +33,7 @@ namespace DAO
             return dt;                
         }
         // truy vấn không lấy dữ liệu
-        public static bool TruyVanKhongData(string Squery , SqlConnection connect)
+        public static bool queryWithoutData(string Squery , SqlConnection connect)
         {
             try
             {

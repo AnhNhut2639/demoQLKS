@@ -47,6 +47,7 @@
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.btnThoatNhanVien = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnLuuNV = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
@@ -110,6 +111,7 @@
             this.cbbChucVu.Name = "cbbChucVu";
             this.cbbChucVu.Size = new System.Drawing.Size(119, 21);
             this.cbbChucVu.TabIndex = 10;
+            this.cbbChucVu.SelectedIndexChanged += new System.EventHandler(this.cbbChucVu_SelectedIndexChanged);
             // 
             // txtTenNV
             // 
@@ -172,21 +174,23 @@
             // 
             // btnXoaNV
             // 
-            this.btnXoaNV.Location = new System.Drawing.Point(21, 157);
+            this.btnXoaNV.Location = new System.Drawing.Point(101, 105);
             this.btnXoaNV.Name = "btnXoaNV";
             this.btnXoaNV.Size = new System.Drawing.Size(75, 23);
             this.btnXoaNV.TabIndex = 7;
             this.btnXoaNV.Text = "Xóa";
             this.btnXoaNV.UseVisualStyleBackColor = true;
+            this.btnXoaNV.Click += new System.EventHandler(this.btnXoaNV_Click);
             // 
             // btnSuaNV
             // 
-            this.btnSuaNV.Location = new System.Drawing.Point(21, 105);
+            this.btnSuaNV.Location = new System.Drawing.Point(165, 55);
             this.btnSuaNV.Name = "btnSuaNV";
             this.btnSuaNV.Size = new System.Drawing.Size(75, 23);
             this.btnSuaNV.TabIndex = 6;
             this.btnSuaNV.Text = "Sửa ";
             this.btnSuaNV.UseVisualStyleBackColor = true;
+            this.btnSuaNV.Click += new System.EventHandler(this.btnSuaNV_Click);
             // 
             // btnThemNV
             // 
@@ -196,6 +200,7 @@
             this.btnThemNV.TabIndex = 5;
             this.btnThemNV.Text = "Thêm";
             this.btnThemNV.UseVisualStyleBackColor = true;
+            this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
             // 
             // groupBox2
             // 
@@ -234,16 +239,27 @@
             this.groupBox3.Controls.Add(this.btnXoaNV);
             this.groupBox3.Location = new System.Drawing.Point(865, 72);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(179, 273);
+            this.groupBox3.Size = new System.Drawing.Size(296, 220);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tác vụ :";
+            // 
+            // btnLuuNV
+            // 
+            this.btnLuuNV.Location = new System.Drawing.Point(951, 298);
+            this.btnLuuNV.Name = "btnLuuNV";
+            this.btnLuuNV.Size = new System.Drawing.Size(75, 23);
+            this.btnLuuNV.TabIndex = 4;
+            this.btnLuuNV.Text = "Lưu thao tác";
+            this.btnLuuNV.UseVisualStyleBackColor = true;
+            this.btnLuuNV.Click += new System.EventHandler(this.btnLuuNV_Click);
             // 
             // FrmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 744);
+            this.Controls.Add(this.btnLuuNV);
             this.Controls.Add(this.btnThoatNhanVien);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -281,5 +297,6 @@
         private System.Windows.Forms.Button btnThemNV;
         private System.Windows.Forms.Button btnThoatNhanVien;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnLuuNV;
     }
 }

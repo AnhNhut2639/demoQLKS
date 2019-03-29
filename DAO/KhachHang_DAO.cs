@@ -100,7 +100,7 @@ namespace DAO
                 Cus.Add(K);
             }
             return Cus;
-            DataProvider.DongKetNoi(conn);
+          //  DataProvider.DongKetNoi(conn);
         }
 
     }

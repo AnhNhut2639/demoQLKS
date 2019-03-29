@@ -28,7 +28,9 @@ namespace QLKS
         {
             dgvNhanVien.DataSource = BUS_NhanVien.takeAllEmployees();
             dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            // bindingNavigator1.BindingSource = dgvNhanVien;
+            cbbChucVu.DataSource = BUS_NhanVien.loadALLChucVu();
+            cbbChucVu.DisplayMember = "ChucVu";
+            cbbChucVu.ValueMember = "ChucVu";
             HienThiDGV();
 
         }
@@ -59,6 +61,135 @@ namespace QLKS
             else
                 radNuNV.Checked = true;
            
+        }
+
+        private void btnThemNV_Click(object sender, EventArgs e)
+        {
+            // kiểm tra dữ liệu có trống không
+            int id = int.Parse(dgvNhanVien.Rows.Count.ToString());
+            txtMaNV.Text = "NV00" + ++id;
+            txtTenNV.Text = "";
+            txtTenNV.Focus();
+            radNamNV.Checked = true;
+            dtpNamSinhNV.ResetText();           
+        }
+
+        private void cbbChucVu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSuaNV_Click(object sender, EventArgs e)
+        {
+            // kiểm tra mã có tồn tại
+            //if (txtMaNV.Text == "" || BUS_NhanVien.TakeAllIDEmployees(txtMaNV.Text) == null)
+            //{
+            //    MessageBox.Show("Vui lòng chọn mã nhân viên!");
+            //    return;
+            //}
+            NhanVien_DTO nv = new NhanVien_DTO();
+            nv.MaNV = txtMaNV.Text;
+            nv.TenNV = txtTenNV.Text;
+            nv.ChucVu = cbbChucVu.SelectedValue.ToString();
+           // nv.ChucVu = cbbChucVu.Text;
+            nv.NamSinh = DateTime.Parse(dtpNamSinhNV.Text);
+            if (radNuNV.Checked == true)
+            {
+                nv.GioiTinh = "Nữ"; // không sửa được khi giới tính là nữ
+            }
+            else 
+            {
+                nv.GioiTinh = "Nam";
+            }
+           
+            
+
+            if (BUS_NhanVien.UpdateALLEmployess(nv) == true)
+            {
+                HienThiDGV();
+                MessageBox.Show("Đã Sửa nhân viên.");
+            }
+            else
+            {
+                MessageBox.Show("Không sửa được.");
+            }
+        }
+
+        private void btnLuuNV_Click(object sender, EventArgs e)
+        {
+
+            if (txtMaNV.Text == "" || txtTenNV.Text == "" || cbbChucVu.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ dữ liệu!");
+                return;
+            }
+            if (txtMaNV.Text.Length < 5)
+            {
+                MessageBox.Show("Mã nhân viên tối đa 5 ký tự!");
+                return;
+            }
+            //kiểm tra có trùng mã nhân viên không 
+            if (BUS_NhanVien.TakeAllIDEmployees(txtMaNV.Text) != null)
+            {
+                MessageBox.Show("Mã nhân viên đã tồn tại!");
+                return;
+            }
+
+            NhanVien_DTO nv = new NhanVien_DTO();
+            nv.MaNV = txtMaNV.Text;
+            nv.TenNV = txtTenNV.Text;
+            nv.ChucVu = cbbChucVu.SelectedValue.ToString();
+            if (radNamNV.Checked == true)
+            {
+                nv.GioiTinh = "Nam";
+            }
+            else
+            {
+                nv.GioiTinh = "Nữ";
+            }
+            nv.NamSinh = DateTime.Parse(dtpNamSinhNV.Text);
+
+            if (BUS_NhanVien.AddAllEmployess(nv) == false)
+            {
+                MessageBox.Show("Không thêm được.");
+                return;
+            }
+
+            MessageBox.Show("Đã thêm nhân viên.");
+            HienThiDGV();
+        }
+
+        private void btnXoaNV_Click(object sender, EventArgs e)
+        {
+            NhanVien_DTO nv = new NhanVien_DTO();
+            nv.MaNV = txtMaNV.Text;
+            nv.TenNV = txtTenNV.Text;
+            nv.ChucVu = cbbChucVu.SelectedValue.ToString();
+            nv.NamSinh = DateTime.Parse(dtpNamSinhNV.Text);
+            if (radNuNV.Checked == true)
+            {
+                nv.GioiTinh = "Nữ";
+            }
+            else
+            {
+                nv.GioiTinh = "Nam";
+            }
+
+            if (BUS_NhanVien.deleteALLEmployess(nv) == true)
+            {
+                HienThiDGV();
+                MessageBox.Show("Đã xóa nhân viên.");
+                txtMaNV.ResetText();
+                txtTenNV.Text = "";
+                txtTenNV.Focus();
+                cbbChucVu.ResetText();
+                radNamNV.Checked = true;
+                dtpNamSinhNV.ResetText();
+            }
+            else
+            {
+                MessageBox.Show("Không xóa được.");
+            }
         }
     }
 }
