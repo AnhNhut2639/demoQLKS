@@ -18,7 +18,7 @@ namespace QLKS
         {
             InitializeComponent();
         }
-
+       // public string tenPhong;
         private void btnThoatPhong_Click(object sender, EventArgs e)
         {
             this.Close();

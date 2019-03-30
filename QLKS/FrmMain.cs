@@ -59,16 +59,33 @@ namespace QLKS
             //frmP.ShowDialog();
             //this.Show();
         }
+        void showService(string ID)
+        {
+            dgvDichVuDaDat.DataSource = BUS_DichVu.takeAllServiceFId(ID);
+            dgvDichVuDaDat.Columns["MaDV"].HeaderText = "Mã dịch vụ";
+            dgvDichVuDaDat.Columns["TenDV"].HeaderText = "Tên dịch vụ";
+            dgvDichVuDaDat.Columns["SoLuong"].HeaderText = "Số lượng";
+            dgvDichVuDaDat.Columns["GiaDV"].HeaderText = "Giá dịch vụ";
+        }
+
+        void ShowDGVKhachHang(string ID)
+        {
+            List<KhachHang_DTO> lst = BUS_KhachHang.takeCustomerAllID(ID);
+           dgvKHDaDat.DataSource = lst;
+            dgvKHDaDat.Columns["MaKH"].HeaderText = "Mã Khách hàng";
+            dgvKHDaDat.Columns["TenKH"].HeaderText = "Tên Khách hàng";
+            dgvKHDaDat.Columns["CMND"].HeaderText = "CMND";
+            dgvKHDaDat.Columns["QuocTich"].HeaderText = "Quốc Tịch";
+            dgvKHDaDat.Columns["GioiTinh"].HeaderText = "Giới Tính";
+            dgvKHDaDat.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
+           dgvKHDaDat.Columns["SDT"].HeaderText = "Liên Lạc";
+           dgvKHDaDat.Columns["MaPhong"].HeaderText = "Mã Phòng";
+        }
 
         private void FrmMain_Load(object sender, EventArgs e)
-        {        
-            //load dữ liệu phòng trống lên DataGridview
-        //    dgvPhongTrong.DataSource = BUS_Phong.TakeAllEmptyRooms();
-          //  dgvPhongTrong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //load dữ liệu phòng đã đặt lên DataGridview
-          //  dgvPhongDaDat.DataSource = BUS_Phong.TakeAllOderedRooms();
-          //  dgvPhongDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            // Nhân dạng chức vụ người đăng nhập 
+        {
+            
+          //  ShowDGVKhachHang();
             
             if(BUS_DangNhap.TakeAllAccounts(A,B)) // xác nhận tài khoản như formMain nếu đúng tiến hành nhân dạng
             {
@@ -77,7 +94,17 @@ namespace QLKS
                 lb1.Text = "Phân quyền " + BUS_DangNhap.getPer(A, B); // lấy ID khi để phân quyền 
                 lb4.Text = "Chức Vụ " + BUS_DangNhap.getAllChucVu(A, B);
             }
-            
+            cbbMaDV.DataSource = BUS_DichVu.takeAllServiceTest();
+            cbbMaDV.DisplayMember = "MaDV";
+            cbbMaDV.ValueMember = "MaDV";
+
+
+            btnThem.Visible = false;           
+            btnXoa.Visible = false;
+            gpDichVuKH.Visible = false;
+            gbXoaDV.Visible = false;
+            dgvKHDaDat.Visible = false;
+            dgvDichVuDaDat.Visible = false;
             
 
 
@@ -172,6 +199,10 @@ namespace QLKS
                 {
                     btn.BackColor = Color.Tomato;
                 }
+                else
+                {
+                    btn.BackColor = Color.Orange;
+                }
 
                 // sự kiện click
                 btn.Click += btn_Click;
@@ -183,17 +214,47 @@ namespace QLKS
         public void btn_Click(object sender , EventArgs e )
         {
             Button btn = sender as Button;
-            string id = (btn.Tag as Phong_DTO).MaPhong;
-           // MessageBox.Show(" " + id, "Thông báo");
+            //string id = (btn.Tag as Phong_DTO).MaPhong;
+            //dgvKHDaDat.DataSource = BUS_KhachHang.takeCustomerAllID(id);
+            //dgvKHDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dgvDichVuDaDat.DataSource = BUS_DichVu.takeAllServiceFId(id);
+            //dgvDichVuDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            dgvKHDaDat.DataSource = BUS_KhachHang.takeCustomerAllID(id);
-            dgvKHDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDichVuDaDat.DataSource = BUS_DichVu.takeAllServiceFId(id);
-            dgvDichVuDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            string status = (btn.Tag as Phong_DTO).TinhTrang;
+            if(status == "Đã đặt")
+            {
+                // MessageBox.Show("" + status, "Thông báo !!!");
+                btn.BackColor = Color.Tomato;
+                string id = (btn.Tag as Phong_DTO).MaPhong;
+                dgvKHDaDat.DataSource = BUS_KhachHang.takeCustomerAllID(id);
+                dgvKHDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvDichVuDaDat.DataSource = BUS_DichVu.takeAllServiceFId(id);
+                dgvDichVuDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                showService(id);
+                ShowDGVKhachHang(id);
 
-          
+                btnThem.Visible = true;             
+                btnXoa.Visible = true;
 
+                dgvKHDaDat.Visible = true;
+                dgvDichVuDaDat.Visible = true;
+                
+            }
+            else
+            {
+                string ten = (btn.Tag as Phong_DTO).TenPhong;
+                // MessageBox.Show("" + ten, "Thông Báo !!!");
+                FrmKhachHang frm = new FrmKhachHang();
+                this.Hide();
+                frm.TenPhong = ten;
+                frm.ShowDialog();
+                
+                this.Show();
 
+            }
+
+           
+           
 
         }
 
@@ -235,6 +296,59 @@ namespace QLKS
             this.Hide();
             f.ShowDialog();
             this.Show();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            gbXoaDV.Visible = false;
+            gpDichVuKH.Visible = true;
+            gpDichVuKH.Text = "Thêm dịch vụ";
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            gpDichVuKH.Visible = false;
+            gbXoaDV.Visible = true;
+          //  gpDichVuKH.Text = "xóa dịch vụ";
+        }
+
+        private void dgvDichVuDaDat_Click(object sender, EventArgs e)
+        {
+            int current = dgvDichVuDaDat.CurrentCell.RowIndex;
+            DataGridViewRow dr = dgvDichVuDaDat.Rows[current];
+            cbbXoaDv.Text = dr.Cells["MaDV"].Value.ToString();
+            txtTenDVXoa.Text = dr.Cells["TenDV"].Value.ToString();
+            txtSoLuongXoa.Text = dr.Cells["SoLuong"].Value.ToString();
+            txtGiaDVXoa.Text = dr.Cells["GiaDV"].Value.ToString();
+        }
+
+        private void cbbMaDV_SelectedValueChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void cbbMaDV_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string id = cbbMaDV.SelectedValue.ToString();
+            ShowInTextBox(id);
+            txtSoLuong.Text = "";
+        }
+
+        void ShowInTextBox(string IDDV)
+        {
+            List<DichVu_DTO> lstDichVu = BUS_DichVu.takeAllServiceFIdSer(IDDV);
+            foreach(DichVu_DTO item in lstDichVu)
+            {
+                txtTenDV.Text = item.TenDV.ToString();
+               // txtSoLuong.Text = item.SoLuong.ToString();
+                txtGia.Text = item.GiaDV.ToString();
+            }
+
         }
     }
 }
