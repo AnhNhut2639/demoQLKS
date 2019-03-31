@@ -19,10 +19,14 @@ namespace QLKS
             InitializeComponent();
         }
         public string TenPhong;
+        public string MaPhong;
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Hide();
+            FrmMain main = new FrmMain();
+            main.ShowDialog();
         }
 
         private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -37,14 +41,16 @@ namespace QLKS
 
         private void FrmKhachHang_Load(object sender, EventArgs e)
         {
-            //dgvKhachHang.DataSource = BUS_KhachHang.TakeAllCustomers();
-            //dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //cbbChonPhong.DataSource = BUS_Phong.TakeAllEmptyRooms();
-            // cbbChonPhong.DisplayMember = "TenPhong";
-            //cbbChonPhong.ValueMember = "MaPhong";
-            //  ShowDGVKhachHang();
-            // cbbChonPhong.Text = TenPhong;
-            cbbChonPhong.Visible = false;           
+            dgvKhachHang.DataSource = BUS_KhachHang.TakeAllCustomers();
+           dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            txtMaKH.Enabled = false;
+            int id = int.Parse(dgvKhachHang.Rows.Count.ToString());
+            txtMaKH.Text = "KH00" + ++id;
+            txtTenKH.Focus();
+
+
+            cbbChonPhong.Visible = false;  
+            txtMaPhongKHDaChon.Text = MaPhong;
             txtPhongDaChon.Text = TenPhong;
             txtPhongDaChon.Enabled = false;
         }
@@ -109,6 +115,53 @@ namespace QLKS
             //txtTenDVKH.Text = dr.Cells["TenDV"].Value.ToString();
             //txtSoLuongDV.Text = dr.Cells["SoLuong"].Value.ToString();
             //txtGiaDVKH.Text = dr.Cells["GiaDV"].Value.ToString();
+        }
+
+        private void btnThemKH_Click(object sender, EventArgs e)
+        {
+            KhachHang_DTO KH = new KhachHang_DTO();
+            KH.MaKH = txtMaKH.Text;
+            KH.TenKH = txtTenKH.Text;
+            KH.Cmnd = int.Parse(txtCMND.Text);
+            KH.QuocTich = txtQuocTich.Text;
+            if (radNam.Checked == true)
+            {
+                KH.GioiTinh = "Nam";
+            }
+            else
+            {
+                KH.GioiTinh = "Nữ";
+            }
+            KH.NgaySinh = DateTime.Parse(dtpNgaySinhKH.Text);
+            KH.Sdt = int.Parse(txtLienLac.Text);
+            KH.MaPhong = txtMaPhongKHDaChon.Text;
+            Phong_DTO P = new Phong_DTO();
+            P.MaPhong = txtMaPhongKHDaChon.Text;
+            // bắt đầu thêm
+
+            if (BUS_KhachHang.AddCustomer(KH) == true)
+            {
+                if (BUS_Phong.UpdateStatusRoom(P) == true)
+                { 
+               
+                    Phong_DTO Ph = new Phong_DTO();
+                    Ph.MaPhong = txtMaPhongKHDaChon.Text;
+                    Ph.NgayDatPhong = DateTime.Parse(dtpDatPhong.Text);
+                    if(BUS_Phong.UpdateDateRoom(Ph) == true)
+                    {
+                        MessageBox.Show("Đã thêm khách hàng,cập nhật lại tình trạng phòng và cập nhật lại ngày đặt phòng mặc định ");
+                        return;
+                    }
+                   
+                }
+                
+
+            }
+            else
+            {
+                MessageBox.Show("Không thêm được", "Thông báo !!!");
+
+            }
         }
     }
 }

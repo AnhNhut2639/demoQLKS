@@ -120,6 +120,27 @@ namespace DAO
             return Ser;
         }
 
+        // thêm dịch vụ
 
+        //public static bool AddService(DichVu_DTO dv)
+        //{
+        //    string sQuery = string.Format(@"insert into NhanVien values('{0}',N'{1}',N'{2}','{3}',N'{4}')", nv.MaNV, nv.TenNV, nv.ChucVu, nv.NamSinh, nv.GioiTinh);
+        //    conn = DataProvider.Connect();
+        //    bool kq = DataProvider.queryWithoutData(sQuery, conn);
+        //    DataProvider.DongKetNoi(conn);
+        //    return kq;
+
+        //}
+
+        // thêm update số lượng dịch vụ 
+        public static bool UpdateSoLuong(DichVu_DTO  DT)
+        {
+            string sQuery = string.Format(@"update DichVu set SoLuong='{0}' where MaDV='{1}'",DT.SoLuong,DT.MaDV);
+            conn = DataProvider.Connect();
+            bool kq = DataProvider.queryWithoutData(sQuery, conn);
+            DataProvider.DongKetNoi(conn);
+            return kq;
+
+        }
     }
 }

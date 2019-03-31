@@ -128,8 +128,26 @@ namespace DAO
 
         }
 
+        // update Phòng
 
+        public static bool UpdateStatusRoom(Phong_DTO P)
+        {
+            string sQuery = string.Format(@"update Phong set TinhTrang = N'Đã đặt' where MaPhong='{0}'",P.MaPhong);
+            conn = DataProvider.Connect();
+            bool kq = DataProvider.queryWithoutData(sQuery, conn);
+            DataProvider.DongKetNoi(conn);
+            return kq;
+        }
+        // update Ngày đặt phòng
 
+        public static bool UpdateDateRoom(Phong_DTO P)
+        {
+            string sQuery = string.Format(@"update Phong set NgayDatPhong = '{0}' where MaPhong = '{1}'", P.NgayDatPhong,P.MaPhong);
+            conn = DataProvider.Connect();
+            bool kq = DataProvider.queryWithoutData(sQuery, conn);
+            DataProvider.DongKetNoi(conn);
+            return kq;
+        }
 
     }
 

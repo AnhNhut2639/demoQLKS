@@ -102,7 +102,17 @@ namespace DAO
             return Cus;
           //  DataProvider.DongKetNoi(conn);
         }
+        // thêm khách hàng 
 
+        public static bool AddCustomers(KhachHang_DTO KH)
+        {
+            string sQuery = string.Format(@"insert into KhachHang values('{0}',N'{1}',N'{2}','{3}','{4}','{5}','{6}','{7}')", KH.MaKH,KH.TenKH, KH.Cmnd,KH.QuocTich, KH.GioiTinh,KH.NgaySinh,KH.Sdt,KH.MaPhong);
+            conn = DataProvider.Connect();
+            bool kq = DataProvider.queryWithoutData(sQuery, conn);
+            DataProvider.DongKetNoi(conn);
+            return kq;
+
+        }
     }
     
 }

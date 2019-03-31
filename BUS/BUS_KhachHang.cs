@@ -24,5 +24,12 @@ namespace BUS
         {
             return KhachHang_DAO.takeCustomerFIdPhong(id);
         }
+
+        // thêm khách hàng 
+
+        public static bool AddCustomer(KhachHang_DTO KH)
+        {
+            return KhachHang_DAO.AddCustomers(KH);
+        }
     }
 }

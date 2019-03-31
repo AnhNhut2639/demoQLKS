@@ -27,5 +27,17 @@ namespace BUS
         {
             return Phong_DAO.takeRoomsFId(id);
         }
+
+        // update tình trạng phòng
+        public static bool UpdateStatusRoom(Phong_DTO P)
+        {
+            return Phong_DAO.UpdateStatusRoom(P);
+        }
+
+        //Update ngày đặt phòng
+        public static bool UpdateDateRoom(Phong_DTO P)
+        {
+            return Phong_DAO.UpdateDateRoom(P);
+        }
     }
 }

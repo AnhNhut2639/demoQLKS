@@ -230,8 +230,8 @@ namespace QLKS
                 dgvKHDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvDichVuDaDat.DataSource = BUS_DichVu.takeAllServiceFId(id);
                 dgvDichVuDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                showService(id);
-                ShowDGVKhachHang(id);
+              //  showService(id);
+               // ShowDGVKhachHang(id);
 
                 btnThem.Visible = true;             
                 btnXoa.Visible = true;
@@ -243,13 +243,15 @@ namespace QLKS
             else
             {
                 string ten = (btn.Tag as Phong_DTO).TenPhong;
+                string maPhong = (btn.Tag as Phong_DTO).MaPhong;
                 // MessageBox.Show("" + ten, "Thông Báo !!!");
                 FrmKhachHang frm = new FrmKhachHang();
                 this.Hide();
                 frm.TenPhong = ten;
+                frm.MaPhong = maPhong;
                 frm.ShowDialog();
                 
-                this.Show();
+               // this.Show();
 
             }
 
@@ -303,6 +305,9 @@ namespace QLKS
             gbXoaDV.Visible = false;
             gpDichVuKH.Visible = true;
             gpDichVuKH.Text = "Thêm dịch vụ";
+            cbbMaDV.Enabled = false;
+            txtTenDV.Enabled = false;
+            txtGia.Enabled = false;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -325,6 +330,11 @@ namespace QLKS
             txtTenDVXoa.Text = dr.Cells["TenDV"].Value.ToString();
             txtSoLuongXoa.Text = dr.Cells["SoLuong"].Value.ToString();
             txtGiaDVXoa.Text = dr.Cells["GiaDV"].Value.ToString();
+            // sửa dv
+            cbbMaDV.Text = dr.Cells["MaDV"].Value.ToString();
+            txtTenDV.Text = dr.Cells["TenDV"].Value.ToString();
+            txtSoLuong.Text = dr.Cells["SoLuong"].Value.ToString();
+            txtGia.Text = dr.Cells["GiaDV"].Value.ToString();
         }
 
         private void cbbMaDV_SelectedValueChanged(object sender, EventArgs e)
@@ -349,6 +359,33 @@ namespace QLKS
                 txtGia.Text = item.GiaDV.ToString();
             }
 
+        }
+
+        private void btnSuaSoLuong_Click(object sender, EventArgs e)
+        {
+            if (txtSoLuong.Text == "")
+            {
+                MessageBox.Show("Nhập số lượng", "Thông báo !!!");
+            }
+            else
+            {
+                DichVu_DTO DV = new DichVu_DTO();
+                DV.MaDV = cbbMaDV.SelectedValue.ToString();
+                DV.SoLuong = int.Parse(txtSoLuong.Text);
+                // string id = (btn.Tag as Phong_DTO).MaPhong;
+                // int sl = int.Parse(txtSoLuong.Text);
+
+
+                if (BUS_DichVu.UpdateSoLuong(DV) == true)
+                {
+                    dgvDichVuDaDat.Refresh();
+                    MessageBox.Show("Đã cập nhật số lượng", "Thông báo  !!!");
+                }
+                else
+                {
+                    MessageBox.Show("không cập nhật số lượng", "Thông báo  !!!");
+                }
+            }
         }
     }
 }

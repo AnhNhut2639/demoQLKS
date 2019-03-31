@@ -57,9 +57,11 @@
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.txtGia = new System.Windows.Forms.TextBox();
             this.gpDichVuKH = new System.Windows.Forms.GroupBox();
-            this.cbbMaDV = new System.Windows.Forms.ComboBox();
+            this.btnSuaSoLuong = new System.Windows.Forms.Button();
             this.btnLuuDV = new System.Windows.Forms.Button();
+            this.cbbMaDV = new System.Windows.Forms.ComboBox();
             this.gbXoaDV = new System.Windows.Forms.GroupBox();
+            this.btnXoaDVVuaChon = new System.Windows.Forms.Button();
             this.cbbXoaDv = new System.Windows.Forms.ComboBox();
             this.txtGiaDVXoa = new System.Windows.Forms.TextBox();
             this.txtSoLuongXoa = new System.Windows.Forms.TextBox();
@@ -68,7 +70,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnXoaDVVuaChon = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKHDaDat)).BeginInit();
@@ -340,6 +341,7 @@
             // 
             // gpDichVuKH
             // 
+            this.gpDichVuKH.Controls.Add(this.btnSuaSoLuong);
             this.gpDichVuKH.Controls.Add(this.btnLuuDV);
             this.gpDichVuKH.Controls.Add(this.cbbMaDV);
             this.gpDichVuKH.Controls.Add(this.txtGia);
@@ -349,12 +351,31 @@
             this.gpDichVuKH.Controls.Add(this.label4);
             this.gpDichVuKH.Controls.Add(this.label3);
             this.gpDichVuKH.Controls.Add(this.label2);
-            this.gpDichVuKH.Location = new System.Drawing.Point(678, 498);
+            this.gpDichVuKH.Location = new System.Drawing.Point(743, 499);
             this.gpDichVuKH.Name = "gpDichVuKH";
             this.gpDichVuKH.Size = new System.Drawing.Size(653, 202);
             this.gpDichVuKH.TabIndex = 33;
             this.gpDichVuKH.TabStop = false;
             this.gpDichVuKH.Text = "Thêm dịch vụ";
+            // 
+            // btnSuaSoLuong
+            // 
+            this.btnSuaSoLuong.Location = new System.Drawing.Point(128, 145);
+            this.btnSuaSoLuong.Name = "btnSuaSoLuong";
+            this.btnSuaSoLuong.Size = new System.Drawing.Size(115, 23);
+            this.btnSuaSoLuong.TabIndex = 36;
+            this.btnSuaSoLuong.Text = "cập nhật số lượng";
+            this.btnSuaSoLuong.UseVisualStyleBackColor = true;
+            this.btnSuaSoLuong.Click += new System.EventHandler(this.btnSuaSoLuong_Click);
+            // 
+            // btnLuuDV
+            // 
+            this.btnLuuDV.Location = new System.Drawing.Point(486, 157);
+            this.btnLuuDV.Name = "btnLuuDV";
+            this.btnLuuDV.Size = new System.Drawing.Size(75, 23);
+            this.btnLuuDV.TabIndex = 35;
+            this.btnLuuDV.Text = "Lưu";
+            this.btnLuuDV.UseVisualStyleBackColor = true;
             // 
             // cbbMaDV
             // 
@@ -365,15 +386,6 @@
             this.cbbMaDV.TabIndex = 34;
             this.cbbMaDV.SelectionChangeCommitted += new System.EventHandler(this.cbbMaDV_SelectionChangeCommitted);
             this.cbbMaDV.SelectedValueChanged += new System.EventHandler(this.cbbMaDV_SelectedValueChanged);
-            // 
-            // btnLuuDV
-            // 
-            this.btnLuuDV.Location = new System.Drawing.Point(486, 157);
-            this.btnLuuDV.Name = "btnLuuDV";
-            this.btnLuuDV.Size = new System.Drawing.Size(75, 23);
-            this.btnLuuDV.TabIndex = 35;
-            this.btnLuuDV.Text = "Lưu";
-            this.btnLuuDV.UseVisualStyleBackColor = true;
             // 
             // gbXoaDV
             // 
@@ -386,12 +398,21 @@
             this.gbXoaDV.Controls.Add(this.label7);
             this.gbXoaDV.Controls.Add(this.label8);
             this.gbXoaDV.Controls.Add(this.label9);
-            this.gbXoaDV.Location = new System.Drawing.Point(660, 575);
+            this.gbXoaDV.Location = new System.Drawing.Point(749, 499);
             this.gbXoaDV.Name = "gbXoaDV";
             this.gbXoaDV.Size = new System.Drawing.Size(653, 181);
             this.gbXoaDV.TabIndex = 36;
             this.gbXoaDV.TabStop = false;
             this.gbXoaDV.Text = "Xóa dịch vụ";
+            // 
+            // btnXoaDVVuaChon
+            // 
+            this.btnXoaDVVuaChon.Location = new System.Drawing.Point(486, 131);
+            this.btnXoaDVVuaChon.Name = "btnXoaDVVuaChon";
+            this.btnXoaDVVuaChon.Size = new System.Drawing.Size(75, 28);
+            this.btnXoaDVVuaChon.TabIndex = 35;
+            this.btnXoaDVVuaChon.Text = "Xóa dịch vụ";
+            this.btnXoaDVVuaChon.UseVisualStyleBackColor = true;
             // 
             // cbbXoaDv
             // 
@@ -457,15 +478,6 @@
             this.label9.Size = new System.Drawing.Size(66, 13);
             this.label9.TabIndex = 25;
             this.label9.Text = "Mã dịch vụ :";
-            // 
-            // btnXoaDVVuaChon
-            // 
-            this.btnXoaDVVuaChon.Location = new System.Drawing.Point(486, 131);
-            this.btnXoaDVVuaChon.Name = "btnXoaDVVuaChon";
-            this.btnXoaDVVuaChon.Size = new System.Drawing.Size(75, 28);
-            this.btnXoaDVVuaChon.TabIndex = 35;
-            this.btnXoaDVVuaChon.Text = "Xóa dịch vụ";
-            this.btnXoaDVVuaChon.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
@@ -547,5 +559,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnXoaDVVuaChon;
+        private System.Windows.Forms.Button btnSuaSoLuong;
     }
 }

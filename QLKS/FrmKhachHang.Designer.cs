@@ -35,6 +35,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMaKH = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtMaPhongKHDaChon = new System.Windows.Forms.TextBox();
+            this.txtPhongDaChon = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpNgaySinhKH = new System.Windows.Forms.DateTimePicker();
             this.cbbChonPhong = new System.Windows.Forms.ComboBox();
@@ -54,7 +58,7 @@
             this.btnXoaKH = new System.Windows.Forms.Button();
             this.btnSuaKH = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPhongDaChon = new System.Windows.Forms.TextBox();
+            this.dtpDatPhong = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDichVuKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
@@ -128,6 +132,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtpDatPhong);
+            this.groupBox1.Controls.Add(this.txtMaKH);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtMaPhongKHDaChon);
             this.groupBox1.Controls.Add(this.txtPhongDaChon);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.dtpNgaySinhKH);
@@ -152,6 +160,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin khách hàng :";
             // 
+            // txtMaKH
+            // 
+            this.txtMaKH.Location = new System.Drawing.Point(575, 27);
+            this.txtMaKH.Name = "txtMaKH";
+            this.txtMaKH.Size = new System.Drawing.Size(144, 20);
+            this.txtMaKH.TabIndex = 34;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(465, 27);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(88, 13);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "Mã khách hàng :";
+            // 
+            // txtMaPhongKHDaChon
+            // 
+            this.txtMaPhongKHDaChon.Location = new System.Drawing.Point(115, 64);
+            this.txtMaPhongKHDaChon.Name = "txtMaPhongKHDaChon";
+            this.txtMaPhongKHDaChon.Size = new System.Drawing.Size(130, 20);
+            this.txtMaPhongKHDaChon.TabIndex = 32;
+            // 
+            // txtPhongDaChon
+            // 
+            this.txtPhongDaChon.Location = new System.Drawing.Point(575, 213);
+            this.txtPhongDaChon.Name = "txtPhongDaChon";
+            this.txtPhongDaChon.Size = new System.Drawing.Size(144, 20);
+            this.txtPhongDaChon.TabIndex = 31;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -172,7 +210,7 @@
             // cbbChonPhong
             // 
             this.cbbChonPhong.FormattingEnabled = true;
-            this.cbbChonPhong.Location = new System.Drawing.Point(597, 263);
+            this.cbbChonPhong.Location = new System.Drawing.Point(579, 256);
             this.cbbChonPhong.Name = "cbbChonPhong";
             this.cbbChonPhong.Size = new System.Drawing.Size(144, 21);
             this.cbbChonPhong.TabIndex = 28;
@@ -244,6 +282,7 @@
             this.btnThemKH.TabIndex = 6;
             this.btnThemKH.Text = "Thêm";
             this.btnThemKH.UseVisualStyleBackColor = true;
+            this.btnThemKH.Click += new System.EventHandler(this.btnThemKH_Click);
             // 
             // label7
             // 
@@ -320,12 +359,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Thông tin khách hàng ";
             // 
-            // txtPhongDaChon
+            // dtpDatPhong
             // 
-            this.txtPhongDaChon.Location = new System.Drawing.Point(575, 213);
-            this.txtPhongDaChon.Name = "txtPhongDaChon";
-            this.txtPhongDaChon.Size = new System.Drawing.Size(144, 20);
-            this.txtPhongDaChon.TabIndex = 31;
+            this.dtpDatPhong.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDatPhong.Location = new System.Drawing.Point(105, 116);
+            this.dtpDatPhong.Name = "dtpDatPhong";
+            this.dtpDatPhong.Size = new System.Drawing.Size(140, 20);
+            this.dtpDatPhong.TabIndex = 35;
             // 
             // FrmKhachHang
             // 
@@ -378,5 +418,9 @@
         private System.Windows.Forms.DateTimePicker dtpNgaySinhKH;
         private System.Windows.Forms.DataGridView dgvDichVuKH;
         private System.Windows.Forms.TextBox txtPhongDaChon;
+        private System.Windows.Forms.TextBox txtMaPhongKHDaChon;
+        private System.Windows.Forms.TextBox txtMaKH;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dtpDatPhong;
     }
 }

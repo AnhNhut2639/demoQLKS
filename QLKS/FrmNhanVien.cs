@@ -101,9 +101,6 @@ namespace QLKS
             {
                 nv.GioiTinh = "Nam";
             }
-           
-            
-
             if (BUS_NhanVien.UpdateALLEmployess(nv) == true)
             {
                 HienThiDGV();

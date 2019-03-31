@@ -28,5 +28,11 @@ namespace BUS
         {
             return DichVu_DAO.takeServiceFIDSer(IDDV);
         }
+        //UPDATE Số lượng dịch vụ
+
+        public static bool UpdateSoLuong(DichVu_DTO DT)
+        {
+            return DichVu_DAO.UpdateSoLuong(DT);
+        }
     }
 }
