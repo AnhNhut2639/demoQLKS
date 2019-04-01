@@ -376,6 +376,7 @@
             this.btnLuuDV.TabIndex = 35;
             this.btnLuuDV.Text = "Lưu";
             this.btnLuuDV.UseVisualStyleBackColor = true;
+            this.btnLuuDV.Click += new System.EventHandler(this.btnLuuDV_Click);
             // 
             // cbbMaDV
             // 
@@ -398,7 +399,7 @@
             this.gbXoaDV.Controls.Add(this.label7);
             this.gbXoaDV.Controls.Add(this.label8);
             this.gbXoaDV.Controls.Add(this.label9);
-            this.gbXoaDV.Location = new System.Drawing.Point(749, 499);
+            this.gbXoaDV.Location = new System.Drawing.Point(627, 540);
             this.gbXoaDV.Name = "gbXoaDV";
             this.gbXoaDV.Size = new System.Drawing.Size(653, 181);
             this.gbXoaDV.TabIndex = 36;

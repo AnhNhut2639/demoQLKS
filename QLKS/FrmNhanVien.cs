@@ -44,8 +44,6 @@ namespace QLKS
             dgvNhanVien.Columns["ChucVu"].HeaderText = "Chức vụ";
             dgvNhanVien.Columns["NamSinh"].HeaderText = "Năm Sinh";
             dgvNhanVien.Columns["GioiTinh"].HeaderText = "Giới Tính";
-
-
         }
 
         private void dgvNhanVien_Click(object sender, EventArgs e)

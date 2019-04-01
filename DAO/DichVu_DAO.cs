@@ -33,6 +33,7 @@ namespace DAO
                 K.TenDV= dt.Rows[i]["TenDV"].ToString();
                 K.SoLuong= int.Parse(dt.Rows[i]["SoLuong"].ToString());
                 K.GiaDV = int.Parse(dt.Rows[i]["GiaDV"].ToString());
+              //  K.MaPhong = dt.Rows[i]["MaPhong"].ToString();
 
                 Ser.Add(K);
             }
@@ -61,7 +62,7 @@ namespace DAO
                 K.TenDV = dt.Rows[i]["TenDV"].ToString();
                 K.SoLuong = int.Parse(dt.Rows[i]["SoLuong"].ToString());
                 K.GiaDV = int.Parse(dt.Rows[i]["GiaDV"].ToString());
-
+               // K.MaPhong = dt.Rows[i]["MaPhong"].ToString();
                 Ser.Add(K);
             }
             return Ser;
@@ -89,7 +90,7 @@ namespace DAO
                 K.TenDV = dt.Rows[i]["TenDV"].ToString();
                 K.SoLuong = int.Parse(dt.Rows[i]["SoLuong"].ToString());
                 K.GiaDV = int.Parse(dt.Rows[i]["GiaDV"].ToString());
-
+             //   K.MaPhong = dt.Rows[i]["MaPhong"].ToString();
                 Ser.Add(K);
             }
             return Ser;
@@ -114,7 +115,7 @@ namespace DAO
                 K.TenDV = dt.Rows[i]["TenDV"].ToString();
                 K.SoLuong = int.Parse(dt.Rows[i]["SoLuong"].ToString());
                 K.GiaDV = int.Parse(dt.Rows[i]["GiaDV"].ToString());
-
+              //  K.MaPhong = dt.Rows[i]["MaPhong"].ToString();
                 Ser.Add(K);
             }
             return Ser;
@@ -122,15 +123,15 @@ namespace DAO
 
         // thêm dịch vụ
 
-        //public static bool AddService(DichVu_DTO dv)
-        //{
-        //    string sQuery = string.Format(@"insert into NhanVien values('{0}',N'{1}',N'{2}','{3}',N'{4}')", nv.MaNV, nv.TenNV, nv.ChucVu, nv.NamSinh, nv.GioiTinh);
-        //    conn = DataProvider.Connect();
-        //    bool kq = DataProvider.queryWithoutData(sQuery, conn);
-        //    DataProvider.DongKetNoi(conn);
-        //    return kq;
+        public static bool AddService(DichVu_DTO dv)
+        {
+            string sQuery = string.Format(@"insert into DichVu values('{0}',N'{1}','{2}','{3}')", dv.MaDV, dv.TenDV, dv.SoLuong, dv.GiaDV);
+            conn = DataProvider.Connect();
+            bool kq = DataProvider.queryWithoutData(sQuery, conn);
+            DataProvider.DongKetNoi(conn);
+            return kq;
 
-        //}
+        }
 
         // thêm update số lượng dịch vụ 
         public static bool UpdateSoLuong(DichVu_DTO  DT)

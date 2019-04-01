@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtpNgayDatPhong = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtGiaPhong = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cbbTinhTrang = new System.Windows.Forms.ComboBox();
             this.cbbLoaiPhong = new System.Windows.Forms.ComboBox();
             this.txtTenPhong = new System.Windows.Forms.TextBox();
@@ -41,16 +45,17 @@
             this.btnThemPhong = new System.Windows.Forms.Button();
             this.btnXoaPhong = new System.Windows.Forms.Button();
             this.btnThoatPhong = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtGiaPhong = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpNgayDatPhong = new System.Windows.Forms.DateTimePicker();
+            this.btnLuuPhong = new System.Windows.Forms.Button();
+            this.btnSuaGiaPhong = new System.Windows.Forms.Button();
+            this.btnLuuGia = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoadPhong)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnLuuGia);
+            this.groupBox2.Controls.Add(this.btnLuuPhong);
             this.groupBox2.Controls.Add(this.dtpNgayDatPhong);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtGiaPhong);
@@ -65,10 +70,43 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(305, 36);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(686, 207);
+            this.groupBox2.Size = new System.Drawing.Size(686, 229);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Phòng :";
+            // 
+            // dtpNgayDatPhong
+            // 
+            this.dtpNgayDatPhong.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayDatPhong.Location = new System.Drawing.Point(434, 159);
+            this.dtpNgayDatPhong.Name = "dtpNgayDatPhong";
+            this.dtpNgayDatPhong.Size = new System.Drawing.Size(145, 20);
+            this.dtpNgayDatPhong.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(337, 160);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Ngày đặt Phòng :";
+            // 
+            // txtGiaPhong
+            // 
+            this.txtGiaPhong.Location = new System.Drawing.Point(429, 41);
+            this.txtGiaPhong.Name = "txtGiaPhong";
+            this.txtGiaPhong.Size = new System.Drawing.Size(150, 20);
+            this.txtGiaPhong.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(350, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Giá :  ";
             // 
             // cbbTinhTrang
             // 
@@ -154,21 +192,23 @@
             // 
             // btnThemPhong
             // 
-            this.btnThemPhong.Location = new System.Drawing.Point(426, 487);
+            this.btnThemPhong.Location = new System.Drawing.Point(390, 487);
             this.btnThemPhong.Name = "btnThemPhong";
             this.btnThemPhong.Size = new System.Drawing.Size(75, 23);
             this.btnThemPhong.TabIndex = 3;
             this.btnThemPhong.Text = "Thêm";
             this.btnThemPhong.UseVisualStyleBackColor = true;
+            this.btnThemPhong.Click += new System.EventHandler(this.btnThemPhong_Click);
             // 
             // btnXoaPhong
             // 
-            this.btnXoaPhong.Location = new System.Drawing.Point(691, 487);
+            this.btnXoaPhong.Location = new System.Drawing.Point(739, 487);
             this.btnXoaPhong.Name = "btnXoaPhong";
             this.btnXoaPhong.Size = new System.Drawing.Size(75, 23);
             this.btnXoaPhong.TabIndex = 3;
             this.btnXoaPhong.Text = "Xóa";
             this.btnXoaPhong.UseVisualStyleBackColor = true;
+            this.btnXoaPhong.Click += new System.EventHandler(this.btnXoaPhong_Click);
             // 
             // btnThoatPhong
             // 
@@ -180,44 +220,42 @@
             this.btnThoatPhong.UseVisualStyleBackColor = true;
             this.btnThoatPhong.Click += new System.EventHandler(this.btnThoatPhong_Click);
             // 
-            // label1
+            // btnLuuPhong
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(350, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Giá :  ";
+            this.btnLuuPhong.Location = new System.Drawing.Point(353, 190);
+            this.btnLuuPhong.Name = "btnLuuPhong";
+            this.btnLuuPhong.Size = new System.Drawing.Size(75, 23);
+            this.btnLuuPhong.TabIndex = 5;
+            this.btnLuuPhong.Text = "Lưu";
+            this.btnLuuPhong.UseVisualStyleBackColor = true;
+            this.btnLuuPhong.Click += new System.EventHandler(this.btnLuuPhong_Click);
             // 
-            // txtGiaPhong
+            // btnSuaGiaPhong
             // 
-            this.txtGiaPhong.Location = new System.Drawing.Point(429, 41);
-            this.txtGiaPhong.Name = "txtGiaPhong";
-            this.txtGiaPhong.Size = new System.Drawing.Size(150, 20);
-            this.txtGiaPhong.TabIndex = 9;
+            this.btnSuaGiaPhong.Location = new System.Drawing.Point(559, 487);
+            this.btnSuaGiaPhong.Name = "btnSuaGiaPhong";
+            this.btnSuaGiaPhong.Size = new System.Drawing.Size(75, 23);
+            this.btnSuaGiaPhong.TabIndex = 5;
+            this.btnSuaGiaPhong.Text = "sửa ";
+            this.btnSuaGiaPhong.UseVisualStyleBackColor = true;
+            this.btnSuaGiaPhong.Click += new System.EventHandler(this.btnSuaGiaPhong_Click);
             // 
-            // label2
+            // btnLuuGia
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(337, 160);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Ngày đặt Phòng :";
-            // 
-            // dtpNgayDatPhong
-            // 
-            this.dtpNgayDatPhong.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayDatPhong.Location = new System.Drawing.Point(434, 159);
-            this.dtpNgayDatPhong.Name = "dtpNgayDatPhong";
-            this.dtpNgayDatPhong.Size = new System.Drawing.Size(145, 20);
-            this.dtpNgayDatPhong.TabIndex = 12;
+            this.btnLuuGia.Location = new System.Drawing.Point(486, 190);
+            this.btnLuuGia.Name = "btnLuuGia";
+            this.btnLuuGia.Size = new System.Drawing.Size(75, 23);
+            this.btnLuuGia.TabIndex = 13;
+            this.btnLuuGia.Text = "Lưu ";
+            this.btnLuuGia.UseVisualStyleBackColor = true;
+            this.btnLuuGia.Click += new System.EventHandler(this.btnLuuGia_Click);
             // 
             // FrmPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1092, 580);
+            this.Controls.Add(this.btnSuaGiaPhong);
             this.Controls.Add(this.btnThoatPhong);
             this.Controls.Add(this.btnXoaPhong);
             this.Controls.Add(this.btnThemPhong);
@@ -251,5 +289,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtGiaPhong;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLuuPhong;
+        private System.Windows.Forms.Button btnSuaGiaPhong;
+        private System.Windows.Forms.Button btnLuuGia;
     }
 }

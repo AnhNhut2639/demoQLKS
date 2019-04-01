@@ -157,7 +157,7 @@ namespace QLKS
             FrmPhong frmP = new FrmPhong();
             this.Hide();
             frmP.ShowDialog();
-            this.Show();
+            //this.Show();
         }
 
         private void linkTraPhong_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -286,7 +286,7 @@ namespace QLKS
             FrmPhong f = new FrmPhong();
             this.Hide();
             f.ShowDialog();
-            f.Show();
+           // f.Show();
 
         }
 
@@ -386,6 +386,11 @@ namespace QLKS
                     MessageBox.Show("không cập nhật số lượng", "Thông báo  !!!");
                 }
             }
+        }
+
+        private void btnLuuDV_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

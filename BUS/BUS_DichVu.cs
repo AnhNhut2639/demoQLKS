@@ -34,5 +34,12 @@ namespace BUS
         {
             return DichVu_DAO.UpdateSoLuong(DT);
         }
+
+        // thêm dịch vụ
+
+        public static bool AddService(DichVu_DTO DV)
+        {
+            return DichVu_DAO.AddService(DV);
+        }
     }
 }

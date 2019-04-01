@@ -21,7 +21,10 @@ namespace QLKS
        // public string tenPhong;
         private void btnThoatPhong_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
+            this.Hide();
+            FrmMain main = new FrmMain();
+            main.ShowDialog();
         }
 
         private void FrmPhong_Load(object sender, EventArgs e)
@@ -29,14 +32,34 @@ namespace QLKS
             dgvLoadPhong.DataSource = BUS_Phong.TakeAllRooms();
             dgvLoadPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             cbbLoaiPhong.DataSource = BUS_Phong.TakeAllRooms();
-            cbbLoaiPhong.DisplayMember = "LoaiPhong"; 
-            cbbLoaiPhong.ValueMember = "MaPhong";
+            cbbLoaiPhong.DisplayMember = "LoaiPhong";
+            cbbLoaiPhong.ValueMember = "LoaiPhong";
+
             //
             cbbTinhTrang.DataSource = BUS_Phong.TakeAllRooms();
             cbbTinhTrang.DisplayMember = "TinhTrang";
+            txtMaPhong.Enabled = false;
+            txtTenPhong.Enabled = false;
+            txtGiaPhong.Enabled = false;
+            cbbTinhTrang.Enabled = false;
+            HienThiDGV();
+            btnLuuPhong.Visible = false;
+            btnLuuGia.Visible = false;
 
-           
+        }
 
+        void HienThiDGV()
+        {
+            List<Phong_DTO> lst = BUS_Phong.TakeAllRooms();
+            dgvLoadPhong.DataSource = lst;
+            dgvLoadPhong.Columns["MaPhong"].HeaderText = "Mã phòng";
+            dgvLoadPhong.Columns["TenPhong"].HeaderText = "Tên phòng";
+            dgvLoadPhong.Columns["LoaiPhong"].HeaderText = "Loại Phòng";
+            dgvLoadPhong.Columns["TinhTrang"].HeaderText = "Tình trạng";
+            //dgvLoadPhong.Columns["NgayDatPhong"].HeaderText = "Ngày đặt phòng";
+            dgvLoadPhong.Columns["MaNV"].Visible = false;
+            dgvLoadPhong.Columns["MaDV"].Visible = false;
+            dgvLoadPhong.Columns["NgayDatPhong"].Visible = false;
         }
 
         private void dgvLoadPhong_Click(object sender, EventArgs e)
@@ -90,7 +113,99 @@ namespace QLKS
 
         private void cbbLoaiPhong_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            string id = cbbLoaiPhong.SelectedValue.ToString();
+            //MessageBox.Show(id);
+            //   int gia = int.Parse(BUS_Phong.takeKindROOM(id).ToString());
+            // txtGiaPhong.Text = int.Parse(gia);
+            showInTxtGia(id);
+        }
+
+        private void btnThemPhong_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(dgvLoadPhong.Rows.Count.ToString());
+            txtMaPhong.Text = "P00" + ++id;
+            txtTenPhong.Text = "Phòng " + id;
+            txtGiaPhong.Text = "";
+            btnLuuPhong.Visible = true;
+
+
+
+        }
+        void showInTxtGia(string id)
+        {
+            List<Phong_DTO> P = BUS_Phong.takeKindROOM(id);
+            foreach (Phong_DTO item in P)
+            {
+                txtGiaPhong.Text = item.GiaPhong.ToString();
+            }
+        }
+
+        private void btnLuuPhong_Click(object sender, EventArgs e)
+        {
+            if(txtGiaPhong.Text == "")
+            {
+                MessageBox.Show("chọn loại phòng để xác định giá phòng ");
+                return;
+            }
+            else
+            {
+                Phong_DTO P = new Phong_DTO();
+                P.MaPhong = txtMaPhong.Text;
+                P.TenPhong = txtTenPhong.Text;
+                P.LoaiPhong = cbbLoaiPhong.SelectedValue.ToString();
+                P.GiaPhong = int.Parse(txtGiaPhong.Text);
+                P.TinhTrang = cbbTinhTrang.Text;
+                P.NgayDatPhong = DateTime.Parse(dtpNgayDatPhong.Text);
+
+                if (BUS_Phong.AddRooms(P) == true)
+                {
+                    HienThiDGV();
+                    MessageBox.Show("đã thêm phòng", "Thông báo !!!");
+                }
+                else
+                {
+                    MessageBox.Show("không thể thêm phòng", "Thông báo !!!");
+                }
+            }
             
+        }
+
+        private void btnXoaPhong_Click(object sender, EventArgs e)
+        {
+            Phong_DTO P = new Phong_DTO();
+            P.MaPhong = txtMaPhong.Text;
+            if (BUS_Phong.deleteRooms(P) == true)
+            {
+                HienThiDGV();
+                MessageBox.Show("đã xóa phòng", "Thông báo !!!");
+            }
+            else
+            {
+                MessageBox.Show("không thể xóa phòng phòng", "Thông báo !!!");
+            }
+        }
+
+        private void btnSuaGiaPhong_Click(object sender, EventArgs e)
+        {
+            txtGiaPhong.Enabled = true;
+            txtGiaPhong.Focus();
+            btnLuuGia.Visible = true;
+        }
+
+        private void btnLuuGia_Click(object sender, EventArgs e)
+        {
+            Phong_DTO P = new Phong_DTO();
+            P.GiaPhong = int.Parse(txtGiaPhong.Text);
+            P.LoaiPhong = cbbLoaiPhong.SelectedValue.ToString();
+            if (BUS_Phong.UpdatePriceRooms(P) == true)
+            {
+                HienThiDGV();
+                MessageBox.Show("đã cập nhật giá phòng", "Thông báo !!! ");
+            }
+            else
+            {
+                MessageBox.Show("không cập nhật được giá phòng", "Thông báo !!! ");
+            }
         }
     }
 }

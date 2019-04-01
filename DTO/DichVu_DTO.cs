@@ -12,10 +12,12 @@ namespace DTO
         private string tenDV;
         private int soLuong;
         private int giaDV;
+      //  private string maPhong;
 
         public string MaDV { get => maDV; set => maDV = value; }
         public string TenDV { get => tenDV; set => tenDV = value; }
         public int SoLuong { get => soLuong; set => soLuong = value; }
         public int GiaDV { get => giaDV; set => giaDV = value; }
+     //   public string MaPhong { get => maPhong; set => maPhong = value; }
     }
 }
