@@ -69,5 +69,10 @@ namespace BUS
             return Phong_DAO.UpdatePriceRoom(P);
         }
 
+        public static bool UpdateEmptyRoom(Phong_DTO P)
+        {
+            return Phong_DAO.UpdateEmptyRoom(P);
+        }
+
     }
 }

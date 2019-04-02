@@ -88,7 +88,7 @@ namespace DAO
             {
                 KhachHang_DTO K = new KhachHang_DTO();
 
-               // K.MaKH = dt.Rows[i]["MaKH"].ToString();
+                K.MaKH = dt.Rows[i]["MaKH"].ToString();
                 K.TenKH = dt.Rows[i]["TenKH"].ToString();
                 K.Cmnd = int.Parse(dt.Rows[i]["CMND"].ToString());
                 K.QuocTich = dt.Rows[i]["QuocTich"].ToString();
@@ -108,6 +108,16 @@ namespace DAO
         {
             string sQuery = string.Format(@"insert into KhachHang values('{0}',N'{1}',N'{2}','{3}','{4}','{5}','{6}','{7}')", KH.MaKH,KH.TenKH, KH.Cmnd,KH.QuocTich, KH.GioiTinh,KH.NgaySinh,KH.Sdt,KH.MaPhong);
             conn = DataProvider.Connect();
+            bool kq = DataProvider.queryWithoutData(sQuery, conn);
+            DataProvider.DongKetNoi(conn);
+            return kq;
+
+        }
+
+        // xóa khách hàng 
+        public static bool deleteCustomers(KhachHang_DTO KH)
+        {
+            string sQuery = string.Format(@"delete from KhachHang where MaKH = '{0}'", KH.MaKH);
             bool kq = DataProvider.queryWithoutData(sQuery, conn);
             DataProvider.DongKetNoi(conn);
             return kq;

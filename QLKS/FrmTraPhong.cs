@@ -23,8 +23,42 @@ namespace QLKS
 
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // this.Close();
             // khi click vào sẽ cập nhật tình trạng phòng lại là trống 
+            HoaDon_DTO HD =new HoaDon_DTO();
+            HD.MaHD = txtMaHD.Text;
+            HD.MaNV = txtMaNVPhuTrach.Text;
+            HD.MaPhong = cbbKhachTP.SelectedValue.ToString();
+            HD.TenKH = txtTenKHTraPhong.Text;
+            HD.NgayDatPhong = DateTime.Parse(dtpTEST.Text);
+            HD.NgayTraPhong = DateTime.Parse(dtpNgayTraPhong.Text);
+            HD.GiaHD = int.Parse(txtTraTien.Text);
+            if(BUS_HoaDon.AddInvoice(HD) == true)
+            {
+                Phong_DTO P = new Phong_DTO();
+                P.MaPhong = cbbKhachTP.SelectedValue.ToString();
+                if(BUS_Phong.UpdateEmptyRoom(P))
+                {
+                    KhachHang_DTO K = new KhachHang_DTO();
+                    K.MaKH = txtMaKHTraPhong.Text;
+                    if(BUS_KhachHang.deleteCustomer(K) == true)
+                    {
+                        MessageBox.Show("Thanh toán thành công !", "Thông báo !!!");
+                        FrmMain main = new FrmMain();
+                        this.Hide();
+                        main.ShowDialog();
+                            
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thanh toán không thành công !", "Thông báo !!!");
+            }
+
+
+
+
         }
 
         private void FrmTraPhong_Load(object sender, EventArgs e)
@@ -33,7 +67,17 @@ namespace QLKS
             cbbKhachTP.DisplayMember = "MaPhong";
             cbbKhachTP.ValueMember = "MaPhong";
             txtNVTT.Text = Ten;
-            txtNVTT.Enabled = false; 
+            txtNVTT.Enabled = false;
+            //string id = txtMaNVPhuTrach.Text;
+            //MessageBox.Show(Ten);
+            showMaNVInTXT(Ten);
+
+            dgvHoaDon.DataSource = BUS_HoaDon.takeInvoice();
+
+            int id = dgvHoaDon.Rows.Count;
+
+            txtMaHD.Text = "HD00" + ++id;
+
             
         }
 
@@ -41,12 +85,20 @@ namespace QLKS
         {
           
         }
-
+        void showMaNVInTXT(string Ten)
+        {
+            List<TaiKhoan_DTO> lst = BUS_TaiKhoan.takeALLAccount(Ten);
+            foreach(TaiKhoan_DTO item in lst)
+            {
+                txtMaNVPhuTrach.Text = item.MaNV.ToString();
+            }
+        }
         void ShowInTXT(string ID)
         {
            List<KhachHang_DTO> K = BUS_KhachHang.takeAllCustomerFiDPhong(ID);
                 foreach (KhachHang_DTO item in K)
                 {
+                    txtMaKHTraPhong.Text = item.MaKH.ToString();
                     txtTenKHTraPhong.Text = item.TenKH.ToString();
                     txtCMNDKHTraPhong.Text = item.Cmnd.ToString();
                     txtQuocTichTraPhong.Text = item.QuocTich.ToString();
@@ -77,7 +129,11 @@ namespace QLKS
 
         private void cbbKhachTP_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            
+            string id = cbbKhachTP.SelectedValue.ToString();
+            ShowInTXT(id);
+            showTTThanhToan(id);
+            showService(id);
+            loadMoney(id);
         }
 
         private void cbbKhachTP_Click(object sender, EventArgs e)
@@ -102,11 +158,7 @@ namespace QLKS
 
         private void btnXacNhanTT_Click(object sender, EventArgs e)
         {
-            string id = cbbKhachTP.Text;
-            ShowInTXT(id);
-            showTTThanhToan(id);
-            showService(id);
-            loadMoney(id);
+            
         }
 
         private void txtNgayNhanPhong_TextChanged(object sender, EventArgs e)

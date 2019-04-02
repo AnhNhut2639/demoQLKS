@@ -57,7 +57,11 @@ namespace QLKS
             gpDichVuKHKhiDatPhong.Visible = false;
 
             //  cbbMaDVKhiDatPhong.DataSource = BUS_DichVu.takeAllServiceFId()
-            cbbMaDVKhiDatPhong.DataSource = BUS_DichVu.takeAllServiceTest();
+            //  cbbMaDVKhiDatPhong.DataSource = BUS_DichVu.takeAllServiceTest();
+            //  cbbMaDVKhiDatPhong.DisplayMember = "MaDV";
+            //   cbbMaDVKhiDatPhong.ValueMember = "MaDV";
+
+            cbbMaDVKhiDatPhong.DataSource = BUS_DichVuDaDat.takeALLServiced();
             cbbMaDVKhiDatPhong.DisplayMember = "MaDV";
             cbbMaDVKhiDatPhong.ValueMember = "MaDV";
         }
@@ -178,40 +182,41 @@ namespace QLKS
 
         private void btnLuuDVKhiDatPhong_Click(object sender, EventArgs e)
         {
-            //if (txtSoLuongKhiDatPhong.Text == "")
-            //{
-            //    MessageBox.Show("Vui lòng nhập số lượng !");
-            //    return;
-            //}
-            //else
-            //{
+            
+            if (txtSoLuongKhiDatPhong.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập số lượng !");
+                return;
+            }          
+            else
+            {
                 DichVu_DTO DV = new DichVu_DTO();
                 DV.MaDV = cbbMaDVKhiDatPhong.SelectedValue.ToString();
                 DV.SoLuong = int.Parse(txtSoLuongKhiDatPhong.Text);
                 DV.TenDV = txtTenDVKhiDatPhong.Text;
                 DV.GiaDV = int.Parse(txtGiaKhiDatPhong.Text);
                 if (BUS_DichVu.AddService(DV) == true)
-                {
-
-                    MessageBox.Show("Đã Thêm dịch vụ", "Thông báo  !!!");
+                {                
                     Phong_DTO PH = new Phong_DTO();
                     PH.MaPhong = txtMaPhongKHDaChon.Text;
                     PH.MaDV = cbbMaDVKhiDatPhong.SelectedValue.ToString();
                     if (BUS_Phong.updateServiceRoom(PH) == true)
                     {
-                        MessageBox.Show("thêm dịch vụ thành và cập nhật lại mã dịch vụ ở phòng thành công");
+                        //  MessageBox.Show("thêm dịch vụ thành và cập nhật lại mã dịch vụ ở phòng thành công");
+                        MessageBox.Show("thêm dịch vụ thành công");
                     }
                 }
                 else
                 {
                     MessageBox.Show("Không thành công", "Thông báo  !!!");
                 }
-           // }
+            }
         }
         void ShowInTextBox(string IDDV)
         {
-            List<DichVu_DTO> lstDichVu = BUS_DichVu.takeAllServiceFIdSer(IDDV);
-            foreach (DichVu_DTO item in lstDichVu)
+            // List<DichVu_DTO> lstDichVu = BUS_DichVu.takeAllServiceFIdSer(IDDV);
+            List<DichVuDaDat_DTO> lstDichVu = BUS_DichVuDaDat.takeAllServicedFIdSer(IDDV);
+            foreach (DichVuDaDat_DTO item in lstDichVu)
             {
                 txtTenDVKhiDatPhong.Text = item.TenDV.ToString();
                 // txtSoLuong.Text = item.SoLuong.ToString();
@@ -222,6 +227,14 @@ namespace QLKS
             private void cbbMaDVKhiDatPhong_SelectionChangeCommitted(object sender, EventArgs e)
         {
             string id = cbbMaDVKhiDatPhong.SelectedValue.ToString();
+            // string MDvHet = cbbMaDVKhiDatPhong.SelectedValue.ToString();
+           // MessageBox.Show(id);
+          //  if (id == "DV001" || id == "DV002" || id == "DV003")
+          //if(id == "DV001")
+          //  {
+          //      MessageBox.Show("Dịch vụ bạn chọn đã hết !!! ","Thông báo");
+          //      return;
+          //  }
             ShowInTextBox(id);
             txtSoLuongKhiDatPhong.Text = "";
             txtSoLuongKhiDatPhong.Focus();

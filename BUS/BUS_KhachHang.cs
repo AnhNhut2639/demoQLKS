@@ -31,5 +31,10 @@ namespace BUS
         {
             return KhachHang_DAO.AddCustomers(KH);
         }
+        // xóa khách hàng theo mã khách hàng
+        public static bool deleteCustomer(KhachHang_DTO KH)
+        {
+            return KhachHang_DAO.deleteCustomers(KH);
+        }
     }
 }

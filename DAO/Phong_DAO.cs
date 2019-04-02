@@ -216,6 +216,15 @@ namespace DAO
             return kq;
         }
 
+        public static bool UpdateEmptyRoom(Phong_DTO P)
+        {
+            string sQuery = string.Format(@"update Phong set TinhTrang = N'Trống' where MaPhong='{0}'", P.MaPhong);
+            conn = DataProvider.Connect();
+            bool kq = DataProvider.queryWithoutData(sQuery, conn);
+            DataProvider.DongKetNoi(conn);
+            return kq;
+        }
+
     }
 
 

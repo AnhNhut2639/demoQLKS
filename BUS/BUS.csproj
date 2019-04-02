@@ -48,9 +48,12 @@
   <ItemGroup>
     <Compile Include="BUS_DangNhap.cs" />
     <Compile Include="BUS_DichVu.cs" />
+    <Compile Include="BUS_DichVuDaDat.cs" />
+    <Compile Include="BUS_HoaDon.cs" />
     <Compile Include="BUS_KhachHang.cs" />
     <Compile Include="BUS_NhanVien.cs" />
     <Compile Include="BUS_Phong.cs" />
+    <Compile Include="BUS_TaiKhoan.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
