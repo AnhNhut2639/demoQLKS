@@ -90,7 +90,7 @@
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(158, 20);
             this.txtTaiKhoan.TabIndex = 3;
-            this.txtTaiKhoan.Text = "NhanVien";
+            this.txtTaiKhoan.Text = "nhanvien";
             // 
             // label2
             // 

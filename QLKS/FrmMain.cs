@@ -16,6 +16,7 @@ namespace QLKS
     {
         public string A;
         public string B;
+        public string C;
         public FrmMain()
         {
             InitializeComponent();
@@ -91,9 +92,24 @@ namespace QLKS
             {
                 MessageBox.Show("Bạn đã đăng nhập với quyền " +BUS_DangNhap.getAllChucVu(A, B) , "Thông Báo");
                 lb2.Text = BUS_DangNhap.getAllName(A, B); // nhận dạng người dùng thông qua tài khoản mà họ đăng nhập trước đó
+
                 lb1.Text = "Phân quyền " + BUS_DangNhap.getPer(A, B); // lấy ID khi để phân quyền 
                 lb4.Text = "Chức Vụ " + BUS_DangNhap.getAllChucVu(A, B);
+
+                //if (BUS_DangNhap.getPer(A, B) == 0)
+                //{
+                //    quảnLýNhânViênToolStripMenuItem.Enabled = false;
+                //    quảnLýPhòngToolStripMenuItem.Enabled = false;
+                //    thốngKêDoanhThuToolStripMenuItem.Enabled = false;
+                //    linkQLNV.Enabled = false;
+                //    linkQLP.Enabled = false;
+                    
+                //}
             }
+
+           
+
+
             cbbMaDV.DataSource = BUS_DichVu.takeAllServiceTest();
             cbbMaDV.DisplayMember = "MaDV";
             cbbMaDV.ValueMember = "MaDV";
@@ -297,7 +313,7 @@ namespace QLKS
             f.Ten = id;
             this.Hide();
             f.ShowDialog();
-            this.Show();
+           // this.Show();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -391,6 +407,23 @@ namespace QLKS
         private void btnLuuDV_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnXoaDVVuaChon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+           if (BUS_DangNhap.TakeAllAccounts(A, B) == true)
+            {
+                if(MessageBox.Show("Bạn có chắc chắn muốn đăng xuất ", "Thông báo",MessageBoxButtons.OKCancel) ==System.Windows.Forms.DialogResult.OK)
+                {
+                    this.Close();
+                }
+                //this.Close();
+            }
         }
     }
 }

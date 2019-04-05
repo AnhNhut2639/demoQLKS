@@ -23,10 +23,12 @@ namespace QLKS
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+           // this.Close();
             this.Hide();
             FrmMain main = new FrmMain();
             main.ShowDialog();
+
+            
         }
 
         private void dgvKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -130,49 +132,59 @@ namespace QLKS
 
         private void btnThemKH_Click(object sender, EventArgs e)
         {
-            KhachHang_DTO KH = new KhachHang_DTO();
-            KH.MaKH = txtMaKH.Text;
-            KH.TenKH = txtTenKH.Text;
-            KH.Cmnd = int.Parse(txtCMND.Text);
-            KH.QuocTich = txtQuocTich.Text;
-            if (radNam.Checked == true)
+            if(txtTenKH.Text == "" || txtLienLac.Text == "" || txtCMND.Text == "")
             {
-                KH.GioiTinh = "Nam";
+                MessageBox.Show("Nhập đầu đủ thông tin", "Thông báo ");
             }
             else
             {
-                KH.GioiTinh = "Nữ";
-            }
-            KH.NgaySinh = DateTime.Parse(dtpNgaySinhKH.Text);
-            KH.Sdt = int.Parse(txtLienLac.Text);
-            KH.MaPhong = txtMaPhongKHDaChon.Text;
-            Phong_DTO P = new Phong_DTO();
-            P.MaPhong = txtMaPhongKHDaChon.Text;
-            // bắt đầu thêm
 
-            if (BUS_KhachHang.AddCustomer(KH) == true)
-            {
-                if (BUS_Phong.UpdateStatusRoom(P) == true)
-                { 
-               
-                    Phong_DTO Ph = new Phong_DTO();
-                    Ph.MaPhong = txtMaPhongKHDaChon.Text;
-                    Ph.NgayDatPhong = DateTime.Parse(dtpDatPhong.Text);
-                    if(BUS_Phong.UpdateDateRoom(Ph) == true)
-                    {
-                        MessageBox.Show("Đã thêm khách hàng,cập nhật lại tình trạng phòng và cập nhật lại ngày đặt phòng mặc định ");
-                        return;
+                KhachHang_DTO KH = new KhachHang_DTO();
+                KH.MaKH = txtMaKH.Text;
+                KH.TenKH = txtTenKH.Text;
+                KH.Cmnd = int.Parse(txtCMND.Text);
+                KH.QuocTich = txtQuocTich.Text;
+                    if (radNam.Checked == true)
+                     {
+                        KH.GioiTinh = "Nam";
                     }
-                   
+                    else
+                    {
+                        KH.GioiTinh = "Nữ";
+                    }
+                KH.NgaySinh = DateTime.Parse(dtpNgaySinhKH.Text);
+                KH.Sdt = int.Parse(txtLienLac.Text);
+                KH.MaPhong = txtMaPhongKHDaChon.Text;
+                Phong_DTO P = new Phong_DTO();
+                P.MaPhong = txtMaPhongKHDaChon.Text;
+                // bắt đầu thêm
+
+                if (BUS_KhachHang.AddCustomer(KH) == true)
+                {
+                    if (BUS_Phong.UpdateStatusRoom(P) == true)
+                    {
+
+                        Phong_DTO Ph = new Phong_DTO();
+                        Ph.MaPhong = txtMaPhongKHDaChon.Text;
+                        Ph.NgayDatPhong = DateTime.Parse(dtpDatPhong.Text);
+                        if (BUS_Phong.UpdateDateRoom(Ph) == true)
+                        {
+                            // MessageBox.Show("Đã thêm khách hàng,cập nhật lại tình trạng phòng và cập nhật lại ngày đặt phòng mặc định ");
+                            MessageBox.Show("Thêm khách hàng thành công ");
+                            return;
+                        }
+
+                    }
+
+
                 }
-                
+                else
+                {
+                    MessageBox.Show("Không thêm được", "Thông báo !!!");
 
+                }
             }
-            else
-            {
-                MessageBox.Show("Không thêm được", "Thông báo !!!");
-
-            }
+            
         }
 
         private void txtDichVuKhiKHDatPhong_Click(object sender, EventArgs e)

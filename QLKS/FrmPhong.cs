@@ -127,6 +127,7 @@ namespace QLKS
             txtTenPhong.Text = "Phòng " + id;
             txtGiaPhong.Text = "";
             btnLuuPhong.Visible = true;
+            btnLuuGia.Visible = false;
 
 
 
@@ -190,6 +191,7 @@ namespace QLKS
             txtGiaPhong.Enabled = true;
             txtGiaPhong.Focus();
             btnLuuGia.Visible = true;
+            btnLuuPhong.Visible = false;
         }
 
         private void btnLuuGia_Click(object sender, EventArgs e)
