@@ -21,10 +21,13 @@ namespace QLKS
        // public string tenPhong;
         private void btnThoatPhong_Click(object sender, EventArgs e)
         {
-            //this.Close();
+
+            this.Close();
             this.Hide();
             FrmMain main = new FrmMain();
+            
             main.ShowDialog();
+            // this.Close();
         }
 
         private void FrmPhong_Load(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace QLKS
             HienThiDGV();
             btnLuuPhong.Visible = false;
             btnLuuGia.Visible = false;
-
+            
         }
 
         void HienThiDGV()

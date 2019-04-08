@@ -16,7 +16,8 @@ namespace QLKS
     {
         public string A;
         public string B;
-        public string C;
+        public string CETRA;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -95,21 +96,10 @@ namespace QLKS
 
                 lb1.Text = "Phân quyền " + BUS_DangNhap.getPer(A, B); // lấy ID khi để phân quyền 
                 lb4.Text = "Chức Vụ " + BUS_DangNhap.getAllChucVu(A, B);
+                PhanQuyen(A, B);
 
-                //if (BUS_DangNhap.getPer(A, B) == 0)
-                //{
-                //    quảnLýNhânViênToolStripMenuItem.Enabled = false;
-                //    quảnLýPhòngToolStripMenuItem.Enabled = false;
-                //    thốngKêDoanhThuToolStripMenuItem.Enabled = false;
-                //    linkQLNV.Enabled = false;
-                //    linkQLP.Enabled = false;
-                    
-                //}
             }
-
            
-
-
             cbbMaDV.DataSource = BUS_DichVu.takeAllServiceTest();
             cbbMaDV.DisplayMember = "MaDV";
             cbbMaDV.ValueMember = "MaDV";
@@ -121,10 +111,22 @@ namespace QLKS
             gbXoaDV.Visible = false;
             dgvKHDaDat.Visible = false;
             dgvDichVuDaDat.Visible = false;
-            
+            // .Text = "DKMM";
+            toolStripStatusLabel1.Text = BUS_DangNhap.getAllChucVu(A, B);
 
+        }
 
+        void PhanQuyen(string A , string B)
+        {
+            if (BUS_DangNhap.getPer(A, B) == 0)
+                {
+                    quảnLýNhânViênToolStripMenuItem.Enabled = false;
+                    quảnLýPhòngToolStripMenuItem.Enabled = false;
+                    thốngKêDoanhThuToolStripMenuItem.Enabled = false;
+                    linkQLNV.Enabled = false;
+                    linkQLP.Enabled = false;
 
+                }
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -174,6 +176,7 @@ namespace QLKS
             this.Hide();
             frmP.ShowDialog();
             //this.Show();
+            
         }
 
         private void linkTraPhong_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -246,8 +249,8 @@ namespace QLKS
                 dgvKHDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvDichVuDaDat.DataSource = BUS_DichVu.takeAllServiceFId(id);
                 dgvDichVuDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-              //  showService(id);
-               // ShowDGVKhachHang(id);
+                showService(id);
+                ShowDGVKhachHang(id);
 
                 btnThem.Visible = true;             
                 btnXoa.Visible = true;
@@ -302,7 +305,8 @@ namespace QLKS
             FrmPhong f = new FrmPhong();
             this.Hide();
             f.ShowDialog();
-           // f.Show();
+            // f.Show();
+            this.Show();
 
         }
 
@@ -420,10 +424,17 @@ namespace QLKS
             {
                 if(MessageBox.Show("Bạn có chắc chắn muốn đăng xuất ", "Thông báo",MessageBoxButtons.OKCancel) ==System.Windows.Forms.DialogResult.OK)
                 {
+                    
                     this.Close();
                 }
                 //this.Close();
             }
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            
+           
         }
     }
 }

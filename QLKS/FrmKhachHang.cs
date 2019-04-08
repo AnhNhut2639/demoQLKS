@@ -23,9 +23,10 @@ namespace QLKS
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
+           
            // this.Close();
             this.Hide();
-            FrmMain main = new FrmMain();
+            FrmMain main = new FrmMain();           
             main.ShowDialog();
 
             
@@ -167,6 +168,10 @@ namespace QLKS
                         Phong_DTO Ph = new Phong_DTO();
                         Ph.MaPhong = txtMaPhongKHDaChon.Text;
                         Ph.NgayDatPhong = DateTime.Parse(dtpDatPhong.Text);
+                        //if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất ", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                        //{
+                        //    this.Close();
+                        //}
                         if (BUS_Phong.UpdateDateRoom(Ph) == true)
                         {
                             // MessageBox.Show("Đã thêm khách hàng,cập nhật lại tình trạng phòng và cập nhật lại ngày đặt phòng mặc định ");

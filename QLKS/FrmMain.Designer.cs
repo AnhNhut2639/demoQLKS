@@ -69,12 +69,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKHDaDat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDichVuDaDat)).BeginInit();
             this.gpDichVuKH.SuspendLayout();
             this.gbXoaDV.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb2
@@ -82,7 +85,7 @@
             this.lb2.AutoSize = true;
             this.lb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb2.ForeColor = System.Drawing.Color.Red;
-            this.lb2.Location = new System.Drawing.Point(916, 59);
+            this.lb2.Location = new System.Drawing.Point(944, 4);
             this.lb2.Name = "lb2";
             this.lb2.Size = new System.Drawing.Size(42, 20);
             this.lb2.TabIndex = 7;
@@ -91,7 +94,7 @@
             // lb1
             // 
             this.lb1.AutoSize = true;
-            this.lb1.Location = new System.Drawing.Point(1161, 55);
+            this.lb1.Location = new System.Drawing.Point(1140, 11);
             this.lb1.Name = "lb1";
             this.lb1.Size = new System.Drawing.Size(35, 13);
             this.lb1.TabIndex = 0;
@@ -100,7 +103,7 @@
             // lb4
             // 
             this.lb4.AutoSize = true;
-            this.lb4.Location = new System.Drawing.Point(1245, 55);
+            this.lb4.Location = new System.Drawing.Point(1321, 9);
             this.lb4.Name = "lb4";
             this.lb4.Size = new System.Drawing.Size(35, 13);
             this.lb4.TabIndex = 1;
@@ -242,7 +245,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(809, 55);
+            this.label1.Location = new System.Drawing.Point(817, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 24);
             this.label1.TabIndex = 13;
@@ -467,11 +470,29 @@
             this.label9.TabIndex = 25;
             this.label9.Text = "Mã dịch vụ :";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 787);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1439, 22);
+            this.statusStrip1.TabIndex = 37;
+            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1439, 809);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gbXoaDV);
             this.Controls.Add(this.gpDichVuKH);
             this.Controls.Add(this.btnXoa);
@@ -500,6 +521,8 @@
             this.gpDichVuKH.PerformLayout();
             this.gbXoaDV.ResumeLayout(false);
             this.gbXoaDV.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -547,5 +570,7 @@
         private System.Windows.Forms.Button btnXoaDVVuaChon;
         private System.Windows.Forms.Button btnSuaSoLuong;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

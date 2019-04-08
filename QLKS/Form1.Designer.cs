@@ -81,7 +81,6 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(158, 20);
             this.txtMatKhau.TabIndex = 4;
-            this.txtMatKhau.Text = "nv1";
             this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // txtTaiKhoan
@@ -90,7 +89,6 @@
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(158, 20);
             this.txtTaiKhoan.TabIndex = 3;
-            this.txtTaiKhoan.Text = "nhanvien";
             // 
             // label2
             // 
