@@ -71,6 +71,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnrefesh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKHDaDat)).BeginInit();
@@ -487,11 +488,22 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // btnrefesh
+            // 
+            this.btnrefesh.Location = new System.Drawing.Point(490, 455);
+            this.btnrefesh.Name = "btnrefesh";
+            this.btnrefesh.Size = new System.Drawing.Size(75, 23);
+            this.btnrefesh.TabIndex = 38;
+            this.btnrefesh.Text = "Refresh";
+            this.btnrefesh.UseVisualStyleBackColor = true;
+            this.btnrefesh.Click += new System.EventHandler(this.btnrefesh_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1439, 809);
+            this.Controls.Add(this.btnrefesh);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gbXoaDV);
             this.Controls.Add(this.gpDichVuKH);
@@ -572,5 +584,6 @@
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button btnrefesh;
     }
 }

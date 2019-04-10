@@ -21,12 +21,13 @@ namespace QLKS
        // public string tenPhong;
         private void btnThoatPhong_Click(object sender, EventArgs e)
         {
-
-            this.Close();
-            this.Hide();
             FrmMain main = new FrmMain();
+            main.loadRoom();
+            this.Close();
+            //this.Hide();
             
-            main.ShowDialog();
+            
+            //main.ShowDialog();
             // this.Close();
         }
 

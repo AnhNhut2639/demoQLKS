@@ -173,7 +173,7 @@ namespace QLKS
         private void linkQLP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmPhong frmP = new FrmPhong();
-            this.Hide();
+           // this.Hide();
             frmP.ShowDialog();
             //this.Show();
             
@@ -205,8 +205,10 @@ namespace QLKS
 
         }
 
-        void loadRoom()
+        public void loadRoom()
         {
+
+            flpRoom.Controls.Clear();
             List<Phong_DTO> P = BUS_Phong.TakeAllRooms();
             
             foreach(Phong_DTO item in P)
@@ -435,6 +437,11 @@ namespace QLKS
         {
             
            
+        }
+
+        private void btnrefesh_Click(object sender, EventArgs e)
+        {
+            loadRoom();
         }
     }
 }
