@@ -39,16 +39,18 @@ namespace QLKS
                 P.MaPhong = cbbKhachTP.SelectedValue.ToString();
                 if(BUS_Phong.UpdateEmptyRoom(P))
                 {
-                    KhachHang_DTO K = new KhachHang_DTO();
-                    K.MaKH = txtMaKHTraPhong.Text;
-                    if(BUS_KhachHang.deleteCustomer(K) == true)
-                    {
+                    
+                    //KhachHang_DTO K = new KhachHang_DTO();
+                    //K.MaKH = txtMaKHTraPhong.Text;
+                   // if(BUS_KhachHang.deleteCustomer(K) == true)
+                    //{
                         MessageBox.Show("Thanh toán thành công !", "Thông báo !!!");
-                        FrmMain main = new FrmMain();
-                        this.Hide();
-                        main.ShowDialog();
-                            
-                    }
+                        this.Close();
+                    //  FrmMain main = new FrmMain();
+                    // this.Hide();
+                    // main.ShowDialog();
+
+                    //}
                 }
             }
             else

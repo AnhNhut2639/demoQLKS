@@ -31,8 +31,10 @@ namespace QLKS
             cbbChucVu.DataSource = BUS_NhanVien.loadALLChucVu();
             cbbChucVu.DisplayMember = "ChucVu";
             cbbChucVu.ValueMember = "ChucVu";
+            btnLuuNV.Visible = false;
             HienThiDGV();
-
+            
+            // btnImages.Image = Image.FromFile("NewFolder1\room.png");
         }
 
         void HienThiDGV()
@@ -69,7 +71,8 @@ namespace QLKS
             txtTenNV.Text = "";
             txtTenNV.Focus();
             radNamNV.Checked = true;
-            dtpNamSinhNV.ResetText();           
+            dtpNamSinhNV.ResetText();
+            btnLuuNV.Visible = true;
         }
 
         private void cbbChucVu_SelectedIndexChanged(object sender, EventArgs e)

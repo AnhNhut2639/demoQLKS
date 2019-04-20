@@ -24,10 +24,10 @@ namespace QLKS
         private void btnThoat_Click(object sender, EventArgs e)
         {
            
-           // this.Close();
-            this.Hide();
-            FrmMain main = new FrmMain();           
-            main.ShowDialog();
+            this.Close();
+            //this.Hide();
+            //FrmMain main = new FrmMain();           
+            //main.ShowDialog();
 
             
         }

@@ -68,13 +68,15 @@ namespace QLKS
             dgvDichVuDaDat.Columns["TenDV"].HeaderText = "Tên dịch vụ";
             dgvDichVuDaDat.Columns["SoLuong"].HeaderText = "Số lượng";
             dgvDichVuDaDat.Columns["GiaDV"].HeaderText = "Giá dịch vụ";
+
+            dgvDichVuDaDat.Columns["MaDV"].Visible = false;
         }
 
         void ShowDGVKhachHang(string ID)
         {
             List<KhachHang_DTO> lst = BUS_KhachHang.takeCustomerAllID(ID);
            dgvKHDaDat.DataSource = lst;
-            dgvKHDaDat.Columns["MaKH"].HeaderText = "Mã Khách hàng";
+            dgvKHDaDat.Columns["MaKH"].HeaderText = "Mã Khách hàng";           
             dgvKHDaDat.Columns["TenKH"].HeaderText = "Tên Khách hàng";
             dgvKHDaDat.Columns["CMND"].HeaderText = "CMND";
             dgvKHDaDat.Columns["QuocTich"].HeaderText = "Quốc Tịch";
@@ -82,17 +84,19 @@ namespace QLKS
             dgvKHDaDat.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
            dgvKHDaDat.Columns["SDT"].HeaderText = "Liên Lạc";
            dgvKHDaDat.Columns["MaPhong"].HeaderText = "Mã Phòng";
+
+            dgvKHDaDat.Columns["MaKH"].Visible = false;
+            dgvKHDaDat.Columns["MaPhong"].Visible = false;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
             
-          //  ShowDGVKhachHang();
             
             if(BUS_DangNhap.TakeAllAccounts(A,B)) // xác nhận tài khoản như formMain nếu đúng tiến hành nhân dạng
             {
                 MessageBox.Show("Bạn đã đăng nhập với quyền " +BUS_DangNhap.getAllChucVu(A, B) , "Thông Báo");
-                lb2.Text = BUS_DangNhap.getAllName(A, B); // nhận dạng người dùng thông qua tài khoản mà họ đăng nhập trước đó
+                lb2.Text ="Welcome  "+ BUS_DangNhap.getAllName(A, B); // nhận dạng người dùng thông qua tài khoản mà họ đăng nhập trước đó
 
                 lb1.Text = "Phân quyền " + BUS_DangNhap.getPer(A, B); // lấy ID khi để phân quyền 
                 lb4.Text = "Chức Vụ " + BUS_DangNhap.getAllChucVu(A, B);
@@ -113,6 +117,10 @@ namespace QLKS
             dgvDichVuDaDat.Visible = false;
             // .Text = "DKMM";
             toolStripStatusLabel1.Text = BUS_DangNhap.getAllChucVu(A, B);
+
+
+              
+
 
         }
 
@@ -173,9 +181,11 @@ namespace QLKS
         private void linkQLP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmPhong frmP = new FrmPhong();
-           // this.Hide();
+            this.Hide();
             frmP.ShowDialog();
-            //this.Show();
+            //this.timer1.Start();
+            this.loadRoom();
+            this.Show();
             
         }
 
@@ -186,6 +196,7 @@ namespace QLKS
             tra.Ten = id;
             this.Hide();
             tra.ShowDialog();
+            this.loadRoom();
             this.Show();
 
             
@@ -214,6 +225,10 @@ namespace QLKS
             foreach(Phong_DTO item in P)
             {
                 Button btn = new Button() { Height = 100, Width = 100 };
+                //btn.Image = global::QLKS.Properties.Resources.empty;
+                //this.button1.Location = new System.Drawing.Point(603, 498);
+                //this.button1.Name = "button1";
+                //btn.Size = new System.Drawing.Size(100, 100);
                 flpRoom.Controls.Add(btn);
                 btn.Text = item.TenPhong + Environment.NewLine + item.TinhTrang;
                 if(item.TinhTrang == "Đã đặt")
@@ -240,7 +255,7 @@ namespace QLKS
             //dgvKHDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             //dgvDichVuDaDat.DataSource = BUS_DichVu.takeAllServiceFId(id);
             //dgvDichVuDaDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
+            
             string status = (btn.Tag as Phong_DTO).TinhTrang;
             if(status == "Đã đặt")
             {
@@ -267,11 +282,11 @@ namespace QLKS
                 string maPhong = (btn.Tag as Phong_DTO).MaPhong;
                 // MessageBox.Show("" + ten, "Thông Báo !!!");
                 FrmKhachHang frm = new FrmKhachHang();
-                this.Hide();
+               // this.Hide();
                 frm.TenPhong = ten;
                 frm.MaPhong = maPhong;
                 frm.ShowDialog();
-                
+                this.loadRoom();
                // this.Show();
 
             }
@@ -308,6 +323,7 @@ namespace QLKS
             this.Hide();
             f.ShowDialog();
             // f.Show();
+            this.loadRoom();
             this.Show();
 
         }
@@ -319,7 +335,8 @@ namespace QLKS
             f.Ten = id;
             this.Hide();
             f.ShowDialog();
-           // this.Show();
+            this.loadRoom();
+            this.Show();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -422,14 +439,14 @@ namespace QLKS
 
         private void đăngXuấtToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-           if (BUS_DangNhap.TakeAllAccounts(A, B) == true)
+            if (BUS_DangNhap.TakeAllAccounts(A, B) == true)
             {
-                if(MessageBox.Show("Bạn có chắc chắn muốn đăng xuất ", "Thông báo",MessageBoxButtons.OKCancel) ==System.Windows.Forms.DialogResult.OK)
+                if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất ", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    
+
                     this.Close();
                 }
-                //this.Close();
+               
             }
         }
 
@@ -441,7 +458,41 @@ namespace QLKS
 
         private void btnrefesh_Click(object sender, EventArgs e)
         {
-            loadRoom();
+          
+        }
+
+        private void checkTimer_CheckedChanged(object sender, EventArgs e)
+        {
+           
+        }
+       
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lb2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void thốngKêDoanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Report r = new Report();
+            //this.Hide();
+            //r.ShowDialog();
+            //this.Show();
+
+        }
+
+        private void toolDoanhThu_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

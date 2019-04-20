@@ -129,6 +129,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -155,6 +156,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image\empty.png" />
+    <Content Include="Image\iconLogin.jpg" />
+    <Content Include="Image\images.jpg" />
+    <Content Include="Image\room.png" />
+    <Content Include="Image\undraw_authentication_fsn5.png" />
+    <Content Include="Image\undraw_control_panel1_20gm.png" />
+    <Content Include="Image\undraw_credit_card_df1m.png" />
+    <Content Include="Image\undraw_hire_te5y.png" />
+    <Content Include="Image\undraw_to_do_list_a49b.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

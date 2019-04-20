@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radNuNV = new System.Windows.Forms.RadioButton();
             this.radNamNV = new System.Windows.Forms.RadioButton();
             this.dtpNamSinhNV = new System.Windows.Forms.DateTimePicker();
@@ -49,6 +50,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnLuuNV = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -56,6 +58,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.radNuNV);
             this.groupBox1.Controls.Add(this.radNamNV);
             this.groupBox1.Controls.Add(this.dtpNamSinhNV);
@@ -67,17 +70,27 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(53, 55);
+            this.groupBox1.Location = new System.Drawing.Point(63, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(785, 290);
+            this.groupBox1.Size = new System.Drawing.Size(775, 290);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin nhân viên :";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::QLKS.Properties.Resources.undraw_hire_te5y;
+            this.pictureBox1.Location = new System.Drawing.Point(80, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(311, 218);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
             // radNuNV
             // 
             this.radNuNV.AutoSize = true;
-            this.radNuNV.Location = new System.Drawing.Point(220, 220);
+            this.radNuNV.Location = new System.Drawing.Point(627, 205);
             this.radNuNV.Name = "radNuNV";
             this.radNuNV.Size = new System.Drawing.Size(39, 17);
             this.radNuNV.TabIndex = 13;
@@ -88,7 +101,7 @@
             // radNamNV
             // 
             this.radNamNV.AutoSize = true;
-            this.radNamNV.Location = new System.Drawing.Point(113, 220);
+            this.radNamNV.Location = new System.Drawing.Point(546, 205);
             this.radNamNV.Name = "radNamNV";
             this.radNamNV.Size = new System.Drawing.Size(47, 17);
             this.radNamNV.TabIndex = 12;
@@ -99,7 +112,7 @@
             // dtpNamSinhNV
             // 
             this.dtpNamSinhNV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNamSinhNV.Location = new System.Drawing.Point(96, 173);
+            this.dtpNamSinhNV.Location = new System.Drawing.Point(546, 166);
             this.dtpNamSinhNV.Name = "dtpNamSinhNV";
             this.dtpNamSinhNV.Size = new System.Drawing.Size(200, 20);
             this.dtpNamSinhNV.TabIndex = 11;
@@ -107,7 +120,7 @@
             // cbbChucVu
             // 
             this.cbbChucVu.FormattingEnabled = true;
-            this.cbbChucVu.Location = new System.Drawing.Point(139, 114);
+            this.cbbChucVu.Location = new System.Drawing.Point(548, 114);
             this.cbbChucVu.Name = "cbbChucVu";
             this.cbbChucVu.Size = new System.Drawing.Size(119, 21);
             this.cbbChucVu.TabIndex = 10;
@@ -115,14 +128,14 @@
             // 
             // txtTenNV
             // 
-            this.txtTenNV.Location = new System.Drawing.Point(137, 75);
+            this.txtTenNV.Location = new System.Drawing.Point(546, 72);
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.Size = new System.Drawing.Size(121, 20);
             this.txtTenNV.TabIndex = 9;
             // 
             // txtMaNV
             // 
-            this.txtMaNV.Location = new System.Drawing.Point(138, 33);
+            this.txtMaNV.Location = new System.Drawing.Point(546, 25);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(120, 20);
             this.txtMaNV.TabIndex = 8;
@@ -130,7 +143,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 32);
+            this.label5.Location = new System.Drawing.Point(459, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 4;
@@ -139,7 +152,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 218);
+            this.label4.Location = new System.Drawing.Point(459, 205);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 3;
@@ -148,7 +161,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 173);
+            this.label3.Location = new System.Drawing.Point(457, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 2;
@@ -157,7 +170,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 122);
+            this.label2.Location = new System.Drawing.Point(459, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 1;
@@ -166,7 +179,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 75);
+            this.label1.Location = new System.Drawing.Point(459, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
@@ -233,7 +246,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox3.Controls.Add(this.btnThemNV);
             this.groupBox3.Controls.Add(this.btnSuaNV);
             this.groupBox3.Controls.Add(this.btnXoaNV);
@@ -269,6 +282,7 @@
             this.Load += new System.EventHandler(this.FrmNhanVien_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -298,5 +312,6 @@
         private System.Windows.Forms.Button btnThoatNhanVien;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnLuuNV;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

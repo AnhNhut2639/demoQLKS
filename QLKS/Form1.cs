@@ -38,6 +38,8 @@ namespace QLKS
                 main.B = Pass;
                 this.Hide();
                 main.ShowDialog();
+                this.txtTaiKhoan.ResetText();
+                this.txtMatKhau.ResetText();
                 this.Show();
             }
             else

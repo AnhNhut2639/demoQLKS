@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTraPhong));
             this.label1 = new System.Windows.Forms.Label();
             this.cbbKhachTP = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtMaHD = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtMaNVPhuTrach = new System.Windows.Forms.TextBox();
             this.txtTraTien = new System.Windows.Forms.TextBox();
@@ -60,6 +60,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtMaKHTraPhong = new System.Windows.Forms.TextBox();
             this.dtpNgaySinhKHTraPhong = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.radNuTraPhong = new System.Windows.Forms.RadioButton();
@@ -74,9 +75,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnXacNhanTT = new System.Windows.Forms.Button();
-            this.txtMaKHTraPhong = new System.Windows.Forms.TextBox();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
-            this.txtMaHD = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVuThanhToan)).BeginInit();
@@ -144,6 +143,14 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Thanh Toán :";
+            // 
+            // txtMaHD
+            // 
+            this.txtMaHD.Location = new System.Drawing.Point(472, 606);
+            this.txtMaHD.Name = "txtMaHD";
+            this.txtMaHD.Size = new System.Drawing.Size(121, 20);
+            this.txtMaHD.TabIndex = 44;
+            this.txtMaHD.Visible = false;
             // 
             // label15
             // 
@@ -259,10 +266,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(357, 56);
+            this.pictureBox1.Image = global::QLKS.Properties.Resources.undraw_credit_card_df1m;
+            this.pictureBox1.Location = new System.Drawing.Point(304, 41);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(227, 203);
+            this.pictureBox1.Size = new System.Drawing.Size(303, 203);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
             // 
@@ -398,6 +406,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin khách trả phòng :";
             // 
+            // txtMaKHTraPhong
+            // 
+            this.txtMaKHTraPhong.Location = new System.Drawing.Point(90, 370);
+            this.txtMaKHTraPhong.Name = "txtMaKHTraPhong";
+            this.txtMaKHTraPhong.Size = new System.Drawing.Size(109, 20);
+            this.txtMaKHTraPhong.TabIndex = 19;
+            this.txtMaKHTraPhong.Visible = false;
+            // 
             // dtpNgaySinhKHTraPhong
             // 
             this.dtpNgaySinhKHTraPhong.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -521,13 +537,6 @@
             this.btnXacNhanTT.Visible = false;
             this.btnXacNhanTT.Click += new System.EventHandler(this.btnXacNhanTT_Click);
             // 
-            // txtMaKHTraPhong
-            // 
-            this.txtMaKHTraPhong.Location = new System.Drawing.Point(90, 370);
-            this.txtMaKHTraPhong.Name = "txtMaKHTraPhong";
-            this.txtMaKHTraPhong.Size = new System.Drawing.Size(109, 20);
-            this.txtMaKHTraPhong.TabIndex = 19;
-            // 
             // dgvHoaDon
             // 
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -535,13 +544,7 @@
             this.dgvHoaDon.Name = "dgvHoaDon";
             this.dgvHoaDon.Size = new System.Drawing.Size(240, 150);
             this.dgvHoaDon.TabIndex = 6;
-            // 
-            // txtMaHD
-            // 
-            this.txtMaHD.Location = new System.Drawing.Point(472, 606);
-            this.txtMaHD.Name = "txtMaHD";
-            this.txtMaHD.Size = new System.Drawing.Size(121, 20);
-            this.txtMaHD.TabIndex = 44;
+            this.dgvHoaDon.Visible = false;
             // 
             // FrmTraPhong
             // 

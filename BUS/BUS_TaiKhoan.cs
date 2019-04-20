@@ -14,5 +14,9 @@ namespace BUS
         {
             return TaiKhoan_DAO.takeAccount(TenNV);
         }
+        //public static List<TaiKhoan_DTO> SubmitPass(string id)
+        //{
+        //    return TaiKhoan_DAO.SubmitPass(id);
+        //}
     }
 }

@@ -21,9 +21,9 @@ namespace QLKS
        // public string tenPhong;
         private void btnThoatPhong_Click(object sender, EventArgs e)
         {
-            FrmMain main = new FrmMain();
-            main.loadRoom();
+            
             this.Close();
+           // main.Show();
             //this.Hide();
             
             

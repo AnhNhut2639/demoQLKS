@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnLuuGia = new System.Windows.Forms.Button();
+            this.btnLuuPhong = new System.Windows.Forms.Button();
             this.dtpNgayDatPhong = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.txtGiaPhong = new System.Windows.Forms.TextBox();
@@ -45,9 +47,7 @@
             this.btnThemPhong = new System.Windows.Forms.Button();
             this.btnXoaPhong = new System.Windows.Forms.Button();
             this.btnThoatPhong = new System.Windows.Forms.Button();
-            this.btnLuuPhong = new System.Windows.Forms.Button();
             this.btnSuaGiaPhong = new System.Windows.Forms.Button();
-            this.btnLuuGia = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoadPhong)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +75,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin Phòng :";
             // 
+            // btnLuuGia
+            // 
+            this.btnLuuGia.Location = new System.Drawing.Point(486, 190);
+            this.btnLuuGia.Name = "btnLuuGia";
+            this.btnLuuGia.Size = new System.Drawing.Size(75, 23);
+            this.btnLuuGia.TabIndex = 13;
+            this.btnLuuGia.Text = "Lưu ";
+            this.btnLuuGia.UseVisualStyleBackColor = true;
+            this.btnLuuGia.Click += new System.EventHandler(this.btnLuuGia_Click);
+            // 
+            // btnLuuPhong
+            // 
+            this.btnLuuPhong.Location = new System.Drawing.Point(353, 190);
+            this.btnLuuPhong.Name = "btnLuuPhong";
+            this.btnLuuPhong.Size = new System.Drawing.Size(75, 23);
+            this.btnLuuPhong.TabIndex = 5;
+            this.btnLuuPhong.Text = "Lưu";
+            this.btnLuuPhong.UseVisualStyleBackColor = true;
+            this.btnLuuPhong.Click += new System.EventHandler(this.btnLuuPhong_Click);
+            // 
             // dtpNgayDatPhong
             // 
             this.dtpNgayDatPhong.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -88,9 +108,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(337, 160);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Ngày đặt Phòng :";
+            this.label2.Text = "Ngày :";
             // 
             // txtGiaPhong
             // 
@@ -220,16 +240,6 @@
             this.btnThoatPhong.UseVisualStyleBackColor = true;
             this.btnThoatPhong.Click += new System.EventHandler(this.btnThoatPhong_Click);
             // 
-            // btnLuuPhong
-            // 
-            this.btnLuuPhong.Location = new System.Drawing.Point(353, 190);
-            this.btnLuuPhong.Name = "btnLuuPhong";
-            this.btnLuuPhong.Size = new System.Drawing.Size(75, 23);
-            this.btnLuuPhong.TabIndex = 5;
-            this.btnLuuPhong.Text = "Lưu";
-            this.btnLuuPhong.UseVisualStyleBackColor = true;
-            this.btnLuuPhong.Click += new System.EventHandler(this.btnLuuPhong_Click);
-            // 
             // btnSuaGiaPhong
             // 
             this.btnSuaGiaPhong.Location = new System.Drawing.Point(559, 487);
@@ -239,16 +249,6 @@
             this.btnSuaGiaPhong.Text = "sửa ";
             this.btnSuaGiaPhong.UseVisualStyleBackColor = true;
             this.btnSuaGiaPhong.Click += new System.EventHandler(this.btnSuaGiaPhong_Click);
-            // 
-            // btnLuuGia
-            // 
-            this.btnLuuGia.Location = new System.Drawing.Point(486, 190);
-            this.btnLuuGia.Name = "btnLuuGia";
-            this.btnLuuGia.Size = new System.Drawing.Size(75, 23);
-            this.btnLuuGia.TabIndex = 13;
-            this.btnLuuGia.Text = "Lưu ";
-            this.btnLuuGia.UseVisualStyleBackColor = true;
-            this.btnLuuGia.Click += new System.EventHandler(this.btnLuuGia_Click);
             // 
             // FrmPhong
             // 
